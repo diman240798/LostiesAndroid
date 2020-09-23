@@ -1,0 +1,151 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.MaterialComponents.Light.NoActionBar">
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
+
+    <style name="SplashTheme" parent="AppTheme">
+        <item name="android:windowBackground">@drawable/bg_splash_theme</item> // картинка с чашечкой
+        <item name="android:windowIsTranslucent">true</item> // убирает blinking
+        <item name="android:windowAnimationStyle">@null</item> // убирает slide анимацию
+    </style>
+
+
+    <style name="TransparentCompat" parent="AppTheme">
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:colorBackgroundCacheHint">@null</item>
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowAnimationStyle">@android:style/Animation</item>
+    </style>
+
+
+
+
+    <style name="Toolbar">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">?attr/actionBarSize</item>
+        <item name="android:background">@color/colorWhite</item>
+    </style>
+
+    <style name="MainToolbarTitle">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:textColor">@color/colorBlackText</item>
+        <item name="android:fontFamily">@font/ubuntu_m</item>
+        <item name="android:textSize">@dimen/text18</item>
+    </style>
+
+    <style name="TilFieldsTheme" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense">
+        <item name="android:textColor">@color/colorBlackText</item>
+
+        <item name="boxBackgroundMode">outline</item>
+        <item name="boxBackgroundColor">@color/colorWhite</item>
+        <item name="boxStrokeColor">@color/text_input_box_stroke</item>
+        <item name="boxStrokeWidth">2dp</item>
+
+        <item name="hintEnabled">true</item>
+        <item name="android:background">@color/colorWhite</item>
+
+        <item name="android:layout_marginStart">@dimen/space16</item>
+        <item name="android:layout_marginEnd">@dimen/space16</item>
+
+        <item name="android:textSize">@dimen/text16</item>
+        <item name="android:fontFamily">@font/ubuntu_r</item>
+        <item name="android:textColorHint">@color/colorBlackText</item>
+
+        <item name="android:maxLength">100</item>
+        <item name="android:maxLines">1</item>
+
+
+        <item name="android:layout_width">@dimen/space0</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="layout_constraintEnd_toEndOf">parent</item>
+        <item name="layout_constraintStart_toStartOf">parent</item>
+    </style>
+
+    <style name="TextInputEditTextPublish" parent="TextViewPublish">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:paddingTop">@dimen/space16</item>
+        <item name="android:drawablePadding">@dimen/space24</item>
+    </style>
+
+    <style name="SpinnerPublish">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:padding">@dimen/space16</item>
+    </style>
+
+    <style name="TitleTextView">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginTop">@dimen/space16</item>
+        <item name="android:fontFamily">@font/ubuntu_b</item>
+        <item name="android:textColor">@color/colorBlueText</item>
+        <item name="layout_constraintEnd_toEndOf">parent</item>
+        <item name="layout_constraintStart_toStartOf">parent</item>
+        <item name="layout_constraintTop_toTopOf">parent</item>
+        <item name="android:textSize">@dimen/text25</item>
+    </style>
+
+    <style name="TextViewPublish">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">@dimen/text16</item>
+        <item name="android:fontFamily">@font/ubuntu_r</item>
+        <item name="android:textColor">@color/colorBlackText</item>
+    </style>
+
+    <style name="EditTextPublish" parent="TextViewPublish">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:textSize">@dimen/text25</item>
+    </style>
+
+    <style name="MailEditText" parent="EditTextPublish">
+        <item name="android:layout_width">@dimen/space0</item>
+        <item name="android:padding">@dimen/space6</item>
+        <item name="android:background">@drawable/backgr_white_with_border</item>
+        <item name="android:theme">@style/PhoneTheme</item>
+    </style>
+
+    <style name="PhoneEditText" parent="EditTextPublish">
+        <item name="android:layout_width">@dimen/space0</item>
+        <item name="mask">(999)-999-99-99</item>
+        <item name="android:inputType">phone</item>
+        <item name="android:theme">@style/PhoneTheme</item>
+        <item name="android:padding">@dimen/space6</item>
+        <item name="android:background">@drawable/backgr_white_with_border</item>
+    </style>
+
+    <style name="PhoneTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <item name="colorControlNormal">@android:color/transparent</item>
+<!--        <item name="colorControlActivated">@color/accent</item>-->
+<!--        <item name="colorControlHighlight">@color/accent</item>-->
+    </style>
+
+    <style name="ImageViewClosePublish">
+        <item name="android:layout_width">@dimen/space50</item>
+        <item name="android:layout_height">@dimen/space50</item>
+        <item name="android:layout_marginTop">@dimen/space10</item>
+        <item name="android:layout_marginStart">@dimen/space12</item>
+        <item name="android:src">@drawable/ic_close</item>
+    </style>
+
+    <style name="BottomNavigationViewEx">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">@dimen/space80</item>
+
+        <item name="menu">@menu/menu_bottom_navigation</item>
+
+        <item name="labelVisibilityMode">unlabeled</item>
+
+        <item name="itemIconTint">@drawable/selector_bottom_nav</item>
+
+        <item name="layout_behavior">@string/hide_bottom_view_on_scroll_behavior</item>
+    </style>
+
+</resources>

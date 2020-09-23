@@ -1,0 +1,289 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorWhite"
+    tools:context=".features.publishad.PublishAdAnimalActivity">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+        <TextView
+            android:id="@+id/tvTitle"
+            android:text="Нашел, беру себе!"
+            style="@style/TitleTextView"
+            tools:ignore="MissingConstraints" />
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/vpPhotos"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:layout_margin="@dimen/space16"
+            app:cardCornerRadius="@dimen/space16"
+
+
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvTitle">
+
+
+            <com.makeramen.roundedimageview.RoundedImageView
+                android:id="@+id/ivCatPhotoTake"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scaleType="fitXY"
+                android:src="@color/colorWhite"
+                app:riv_border_color="@color/colorBlueText"
+                app:riv_border_width="3dp"
+                app:riv_corner_radius="16dp"
+                app:riv_mutate_background="true"
+                app:riv_tile_mode="repeat" />
+
+        </androidx.cardview.widget.CardView>
+
+        <ImageView
+            android:id="@+id/ivLoadPhoto"
+            android:layout_width="@dimen/space120"
+            android:layout_height="@dimen/space120"
+            android:elevation="2dp"
+
+            android:src="@drawable/ic_photo"
+
+            app:layout_constraintBottom_toBottomOf="@+id/vpPhotos"
+            app:layout_constraintEnd_toEndOf="@+id/vpPhotos"
+            app:layout_constraintStart_toStartOf="@+id/vpPhotos"
+            app:layout_constraintTop_toTopOf="@+id/vpPhotos" />
+
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/tilAddress"
+            style="@style/TilFieldsTheme"
+            android:layout_marginTop="@dimen/space20"
+            android:hint="@string/address"
+            app:layout_constraintTop_toBottomOf="@id/vpPhotos"
+            tools:ignore="MissingConstraints">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/etAddress"
+                style="@style/TextInputEditTextPublish"
+                android:drawableStart="@drawable/ic_address" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <FrameLayout
+            android:id="@+id/clTypeRoot"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/space70"
+            app:layout_constraintTop_toBottomOf="@id/tilAddress"
+            android:background="@drawable/backgr_white_with_border"
+            android:layout_marginTop="@dimen/space16"
+            android:layout_marginStart="@dimen/space16"
+            android:layout_marginEnd="@dimen/space16">
+
+            <ImageView
+                android:id="@+id/ivType"
+                android:layout_width="@dimen/space50"
+                android:layout_height="@dimen/space50"
+                android:layout_gravity="center|left"
+                android:layout_marginStart="12dp"
+                android:src="@drawable/ic_cat_mail"/>
+
+            <androidx.appcompat.widget.AppCompatSpinner
+                android:id="@+id/spinnerType"
+                android:layout_gravity="center|right"
+                android:layout_marginStart="@dimen/space50"
+                style="@style/SpinnerPublish" />
+
+        </FrameLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/clPhoneRoot"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/clTypeRoot"
+            android:background="@drawable/backgr_white_with_border"
+            android:layout_marginTop="@dimen/space16"
+            android:layout_marginStart="@dimen/space16"
+            android:layout_marginEnd="@dimen/space16">
+
+            <ImageView
+                android:id="@+id/ivPhone"
+                android:layout_width="@dimen/space50"
+                android:layout_height="@dimen/space50"
+                android:layout_marginTop="@dimen/space10"
+                android:layout_marginStart="12dp"
+                android:src="@drawable/ic_phone"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <nanicky.losties.android.core.ui.MaskedEditText
+                android:id="@+id/etPhone0"
+                style="@style/PhoneEditText"
+                android:layout_marginStart="@dimen/space16"
+                android:layout_marginTop="@dimen/space12"
+                android:layout_marginEnd="@dimen/space12"
+                app:layout_constraintEnd_toStartOf="@+id/ivAddPhone"
+                app:layout_constraintStart_toEndOf="@id/ivPhone"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:id="@+id/ivAddPhone"
+                android:layout_width="@dimen/space50"
+                android:layout_height="@dimen/space50"
+                android:src="@drawable/ic_plus"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_marginTop="@dimen/space10"
+                android:layout_marginEnd="@dimen/space12" />
+
+
+            <nanicky.losties.android.core.ui.MaskedEditText
+                android:visibility="gone"
+                android:id="@+id/etPhone1"
+                style="@style/PhoneEditText"
+                android:layout_marginTop="@dimen/space12"
+                app:layout_constraintStart_toStartOf="@+id/etPhone0"
+                app:layout_constraintEnd_toEndOf="@id/etPhone0"
+                app:layout_constraintTop_toBottomOf="@id/etPhone0" />
+
+            <ImageView
+                android:visibility="gone"
+                android:id="@+id/ivClosePhone1"
+                style="@style/ImageViewClosePublish"
+                app:layout_constraintStart_toEndOf="@id/etPhone1"
+                app:layout_constraintTop_toTopOf="@id/etPhone1"
+                app:layout_constraintBottom_toBottomOf="@id/etPhone1"/>
+
+            <nanicky.losties.android.core.ui.MaskedEditText
+                android:visibility="gone"
+                android:id="@+id/etPhone2"
+                style="@style/PhoneEditText"
+                android:layout_marginTop="@dimen/space12"
+                app:layout_constraintStart_toStartOf="@+id/etPhone0"
+                app:layout_constraintEnd_toEndOf="@id/etPhone0"
+                app:layout_constraintTop_toBottomOf="@id/etPhone1"/>
+
+            <ImageView
+                android:visibility="gone"
+                android:id="@+id/ivClosePhone2"
+                style="@style/ImageViewClosePublish"
+                app:layout_constraintStart_toEndOf="@id/etPhone2"
+                app:layout_constraintTop_toTopOf="@id/etPhone2"
+                app:layout_constraintBottom_toBottomOf="@id/etPhone2"/>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="10dp"
+                app:layout_constraintTop_toBottomOf="@id/etPhone2" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/tilMail"
+            style="@style/TilFieldsTheme"
+            android:layout_marginTop="@dimen/space20"
+            android:hint="@string/email"
+            app:layout_constraintTop_toBottomOf="@id/clPhoneRoot"
+            tools:ignore="MissingConstraints">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/etMail"
+                style="@style/TextInputEditTextPublish"
+                android:inputType="textEmailAddress"
+                android:drawableStart="@drawable/ic_mail" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/clNetworkRoot"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/tilMail"
+            android:background="@drawable/backgr_white_with_border"
+            android:layout_marginTop="@dimen/space16"
+            android:layout_marginStart="@dimen/space16"
+            android:layout_marginEnd="@dimen/space16">
+
+            <ImageView
+                android:id="@+id/ivSocialNetwork"
+                android:layout_width="@dimen/space50"
+                android:layout_height="@dimen/space50"
+                android:layout_marginTop="@dimen/space10"
+                android:layout_marginStart="12dp"
+                android:src="@drawable/ic_social_network"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <EditText
+                android:id="@+id/etSocNet0"
+                style="@style/MailEditText"
+                android:layout_marginStart="@dimen/space16"
+                android:layout_marginTop="@dimen/space12"
+                android:layout_marginEnd="@dimen/space12"
+                app:layout_constraintEnd_toStartOf="@+id/ivAddSocNet"
+                app:layout_constraintStart_toEndOf="@id/ivSocialNetwork"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:id="@+id/ivAddSocNet"
+                android:layout_width="@dimen/space50"
+                android:layout_height="@dimen/space50"
+                android:src="@drawable/ic_plus"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_marginTop="@dimen/space10"
+                android:layout_marginEnd="@dimen/space12" />
+
+
+            <EditText
+                android:visibility="gone"
+                android:id="@+id/etSocNet1"
+                style="@style/MailEditText"
+                android:layout_marginTop="@dimen/space12"
+                app:layout_constraintStart_toStartOf="@+id/etSocNet0"
+                app:layout_constraintEnd_toEndOf="@id/etSocNet0"
+                app:layout_constraintTop_toBottomOf="@id/etSocNet0" />
+
+            <ImageView
+                android:visibility="gone"
+                android:id="@+id/ivCloseSoc1"
+                style="@style/ImageViewClosePublish"
+                app:layout_constraintStart_toEndOf="@id/etSocNet1"
+                app:layout_constraintTop_toTopOf="@id/etSocNet1"
+                app:layout_constraintBottom_toBottomOf="@id/etSocNet1"/>
+
+            <EditText
+                android:visibility="gone"
+                android:id="@+id/etSocNet2"
+                style="@style/MailEditText"
+                android:layout_marginTop="@dimen/space12"
+                app:layout_constraintStart_toStartOf="@+id/etSocNet1"
+                app:layout_constraintEnd_toEndOf="@id/etSocNet1"
+                app:layout_constraintTop_toBottomOf="@id/etSocNet1"/>
+
+            <ImageView
+                android:visibility="gone"
+                android:id="@+id/ivCloseSoc2"
+                style="@style/ImageViewClosePublish"
+                app:layout_constraintStart_toEndOf="@id/etSocNet2"
+                app:layout_constraintTop_toTopOf="@id/etSocNet2"
+                app:layout_constraintBottom_toBottomOf="@id/etSocNet2"/>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="10dp"
+                app:layout_constraintTop_toBottomOf="@id/etSocNet2" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/space16"
+            app:layout_constraintTop_toBottomOf="@id/clNetworkRoot" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.core.widget.NestedScrollView>

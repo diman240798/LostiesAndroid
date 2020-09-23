@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#009688</color>
+
+
+    <color name="colorRed">#FF0069</color>
+    <color name="colorGraySeparator">#456</color>
+    <color name="colorTextGray">#456</color>
+    <color name="colorOffWhite">#456</color>
+    <color name="colorOffCircle">#456</color>
+    <color name="colorOnCircle">#456</color>
+    <color name="colorSettingMenuBorder">#345</color>
+    <color name="colorZeroStatisticsGray">#456</color>
+
+    <color name="colorBlueText">#1549CE</color>
+
+    <color name="colorWhite">#fff</color>
+    <color name="colorBlackText">#000</color>
+    <color name="colorHint">#456</color>
+    <color name="colorBorderGray">#000</color>
+
+</resources>

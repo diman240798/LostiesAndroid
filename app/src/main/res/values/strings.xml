@@ -1,0 +1,16 @@
+<resources>
+    <string name="i_understand">I understand</string>
+    <string name="yes">Yes</string>
+    <string name="cancel">Cancel</string>
+    <string name="email">Почта</string>
+    <string name="address">Адрес</string>
+    <string name="type_and_sex">Тип и пол</string>
+    <string name="cat">Кот</string>
+    <string name="catty">Кошка</string>
+    <string name="dog">Пес</string>
+    <string name="doggy">Собака</string>
+    <string name="other">Другие</string>
+    <string name="phone">Телефон</string>
+    <string name="network">Соц сеть (VK, Telegram, ...)</string>
+    <string name="input_error">Ошибка ввода</string>
+</resources>

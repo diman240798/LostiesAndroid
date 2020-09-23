@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="SplashTheme" parent="AppTheme">
+        <item name="android:windowBackground">@drawable/bg_splash_theme</item> // картинка с чашечкой
+        <item name="android:windowIsTranslucent">true</item> // убирает blinking
+        <item name="android:windowAnimationStyle">@null</item> // убирает slide анимацию
+    </style>
+</resources>
