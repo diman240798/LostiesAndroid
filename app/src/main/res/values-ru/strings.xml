@@ -13,4 +13,13 @@
     <string name="phone">Телефон</string>
     <string name="network">Соц сеть (VK, Telegram, ...)</string>
     <string name="input_error">Ошибка ввода</string>
+    <string name="list">Список</string>
+    <string name="feed">Лента</string>
+    <string name="profile">Профиль</string>
+    <string name="why_should_i_register">Зачем регаться?</string>
+    <string name="publish">Опубликовать</string>
+    <string name="seems_home">Вроде домашнее</string>
+    <string name="read">Полистать</string>
+    <string name="losties">Потеряшки</string>
+    <string name="found_animals">Подобранные</string>
 </resources>

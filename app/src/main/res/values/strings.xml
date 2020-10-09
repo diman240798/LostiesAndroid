@@ -1,4 +1,5 @@
 <resources>
+    <string name="app_name" translatable="false">Losties</string>
     <string name="i_understand">I understand</string>
     <string name="yes">Yes</string>
     <string name="cancel">Cancel</string>
@@ -13,4 +14,17 @@
     <string name="phone">Телефон</string>
     <string name="network">Соц сеть (VK, Telegram, ...)</string>
     <string name="input_error">Ошибка ввода</string>
+    <string name="list">Список</string>
+    <string name="feed">Лента</string>
+    <string name="profile">Профиль</string>
+    <string name="why_should_i_register">Why should I register?</string>
+    <string name="facebook" translatable="false">Facebook</string>
+    <string name="vk" translatable="false">VK</string>
+    <string name="publish">Опубликовать</string>
+    <string name="lost">Потерял</string>
+    <string name="found_take_home">Нашел, беру себе</string>
+    <string name="seems_home">Вроде домашнее</string>
+    <string name="read">Полистать</string>
+    <string name="losties">Потеряшки</string>
+    <string name="found_animals">Подобранные</string>
 </resources>

@@ -1,0 +1,316 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/ivPhoto"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+
+
+            android:layout_marginTop="@dimen/space56"
+            android:src="@drawable/ic_photo"
+
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/space16"
+            android:fontFamily="@font/ubuntu_r"
+            android:textColor="@color/colorBlackText"
+            android:textSize="@dimen/text20"
+            android:visibility="gone"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/ivPhoto"
+            tools:text="Name Surname" />
+
+
+        <Button
+            android:id="@+id/btWhyRegister"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/space16"
+            android:text="@string/why_should_i_register"
+            android:textAllCaps="false"
+            android:visibility="visible"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/ivPhoto" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/clRootFacebook"
+            style="@style/registerParentRoot"
+            android:layout_height="@dimen/space55"
+            android:layout_marginTop="@dimen/space60"
+            android:clickable="true"
+            android:focusable="true"
+            app:layout_constraintTop_toBottomOf="@id/btWhyRegister">
+
+
+            <ImageView
+                android:id="@+id/ivFacebook"
+                style="@style/UserActionImage"
+                app:srcCompat="@drawable/ic_facebook" />
+
+            <TextView
+                android:id="@+id/tvFacebook"
+                style="@style/UserActionText"
+                android:text="@string/facebook"
+                app:layout_constraintBottom_toBottomOf="@id/ivFacebook"
+                app:layout_constraintStart_toEndOf="@id/ivFacebook"
+                app:layout_constraintTop_toTopOf="@id/ivFacebook" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/clRootVk"
+            style="@style/registerParentRoot"
+            android:layout_height="@dimen/space55"
+            android:layout_marginTop="@dimen/space16"
+            android:clickable="true"
+            android:focusable="true"
+            app:layout_constraintTop_toBottomOf="@id/clRootFacebook">
+
+
+            <ImageView
+                android:id="@+id/ivVK"
+                style="@style/UserActionImage"
+                app:srcCompat="@drawable/ic_vk" />
+
+            <TextView
+                android:id="@+id/tvVk"
+                style="@style/UserActionText"
+                android:text="@string/vk"
+                app:layout_constraintBottom_toBottomOf="@id/ivVK"
+                app:layout_constraintStart_toEndOf="@id/ivVK"
+                app:layout_constraintTop_toTopOf="@id/ivVK" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/space16"
+            app:layout_constraintTop_toBottomOf="@id/clRootVk">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/clRootGivePublication"
+                style="@style/registerParentRoot"
+                android:layout_height="wrap_content"
+                android:clickable="true"
+                android:focusable="true"
+                android:foreground="@null">
+
+                <TextView
+                    android:id="@+id/tvTitleGive"
+                    style="@style/UserActionTitle"
+                    android:text="@string/publish" />
+
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/clLostAnimal"
+                    style="@style/registerParentRoot"
+                    android:layout_height="@dimen/space55"
+                    android:layout_marginTop="@dimen/space16"
+                    android:clickable="true"
+                    android:focusable="true"
+                    app:layout_constraintTop_toBottomOf="@id/tvTitleGive">
+
+
+                    <ImageView
+                        android:id="@+id/ivLostAnimal"
+                        style="@style/UserActionImage"
+                        app:srcCompat="@drawable/ic_vk" />
+
+                    <TextView
+                        android:id="@+id/tvLostAnimal"
+                        style="@style/UserActionText"
+                        android:text="@string/lost"
+                        app:layout_constraintBottom_toBottomOf="@id/ivLostAnimal"
+                        app:layout_constraintStart_toEndOf="@id/ivLostAnimal"
+                        app:layout_constraintTop_toTopOf="@id/ivLostAnimal" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/clFoundAnimal"
+                    style="@style/registerParentRoot"
+                    android:layout_height="@dimen/space55"
+                    android:layout_marginTop="@dimen/space16"
+                    android:clickable="true"
+                    android:focusable="true"
+                    app:layout_constraintTop_toBottomOf="@id/clLostAnimal">
+
+
+                    <ImageView
+                        android:id="@+id/ivFoundAnimal"
+                        style="@style/UserActionImage"
+                        app:srcCompat="@drawable/ic_vk" />
+
+                    <TextView
+                        android:id="@+id/tvFoundAnimal"
+                        style="@style/UserActionText"
+                        android:text="@string/found_take_home"
+                        app:layout_constraintBottom_toBottomOf="@id/ivFoundAnimal"
+                        app:layout_constraintStart_toEndOf="@id/ivFoundAnimal"
+                        app:layout_constraintTop_toTopOf="@id/ivFoundAnimal" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/clSeemsHomeAnimal"
+                    style="@style/registerParentRoot"
+                    android:layout_height="@dimen/space55"
+                    android:layout_marginTop="@dimen/space16"
+                    android:clickable="true"
+                    android:focusable="true"
+                    app:layout_constraintTop_toBottomOf="@id/clFoundAnimal">
+
+
+                    <ImageView
+                        android:id="@+id/ivSeemsHomeAnimal"
+                        style="@style/UserActionImage"
+                        app:srcCompat="@drawable/ic_vk" />
+
+                    <TextView
+                        android:id="@+id/tvSeemsHomeAnimal"
+                        style="@style/UserActionText"
+                        android:text="@string/seems_home"
+                        app:layout_constraintBottom_toBottomOf="@id/ivSeemsHomeAnimal"
+                        app:layout_constraintStart_toEndOf="@id/ivSeemsHomeAnimal"
+                        app:layout_constraintTop_toTopOf="@id/ivSeemsHomeAnimal" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/space12"
+                    app:layout_constraintTop_toBottomOf="@id/clSeemsHomeAnimal" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+            <!--READ PUBLICATIONS-->
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/clRootReadPublication"
+                style="@style/registerParentRoot"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/space32"
+                android:clickable="true"
+                android:focusable="true"
+                android:foreground="@null"
+                app:layout_constraintTop_toBottomOf="@id/clRootGivePublication"
+                app:layout_constraintTop_toTopOf="@null">
+
+                <TextView
+                    android:id="@+id/tvTitleRead"
+                    style="@style/UserActionTitle"
+                    android:text="@string/read" />
+
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/clReadLostAnimal"
+                    style="@style/registerParentRoot"
+                    android:layout_height="@dimen/space55"
+                    android:layout_marginTop="@dimen/space16"
+                    android:clickable="true"
+                    android:focusable="true"
+                    app:layout_constraintTop_toBottomOf="@id/tvTitleRead">
+
+
+                    <ImageView
+                        android:id="@+id/ivReadLostAnimal"
+                        style="@style/UserActionImage"
+                        app:srcCompat="@drawable/ic_vk" />
+
+                    <TextView
+                        android:id="@+id/tvReadLostAnimal"
+                        style="@style/UserActionText"
+                        android:text="@string/losties"
+                        app:layout_constraintBottom_toBottomOf="@id/ivReadLostAnimal"
+                        app:layout_constraintStart_toEndOf="@id/ivReadLostAnimal"
+                        app:layout_constraintTop_toTopOf="@id/ivReadLostAnimal" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/clReadFoundAnimal"
+                    style="@style/registerParentRoot"
+                    android:layout_height="@dimen/space55"
+                    android:layout_marginTop="@dimen/space16"
+                    android:clickable="true"
+                    android:focusable="true"
+                    app:layout_constraintTop_toBottomOf="@id/clReadLostAnimal">
+
+
+                    <ImageView
+                        android:id="@+id/ivReadFoundAnimal"
+                        style="@style/UserActionImage"
+                        app:srcCompat="@drawable/ic_vk" />
+
+                    <TextView
+                        android:id="@+id/tvReadFoundAnimal"
+                        style="@style/UserActionText"
+                        android:text="@string/found_animals"
+                        app:layout_constraintBottom_toBottomOf="@id/ivReadFoundAnimal"
+                        app:layout_constraintStart_toEndOf="@id/ivReadFoundAnimal"
+                        app:layout_constraintTop_toTopOf="@id/ivReadFoundAnimal" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/clReadSeemsHomeAnimal"
+                    style="@style/registerParentRoot"
+                    android:layout_height="@dimen/space55"
+                    android:layout_marginTop="@dimen/space16"
+                    android:clickable="true"
+                    android:focusable="true"
+                    app:layout_constraintTop_toBottomOf="@id/clReadFoundAnimal">
+
+
+                    <ImageView
+                        android:id="@+id/ivReadSeemsHomeAnimal"
+                        style="@style/UserActionImage"
+                        app:srcCompat="@drawable/ic_vk" />
+
+                    <TextView
+                        android:id="@+id/tvReadSeemsHomeAnimal"
+                        style="@style/UserActionText"
+                        android:text="@string/seems_home"
+                        app:layout_constraintBottom_toBottomOf="@id/ivReadSeemsHomeAnimal"
+                        app:layout_constraintStart_toEndOf="@id/ivReadSeemsHomeAnimal"
+                        app:layout_constraintTop_toTopOf="@id/ivReadSeemsHomeAnimal" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/space12"
+                    app:layout_constraintTop_toBottomOf="@id/clReadSeemsHomeAnimal" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</androidx.core.widget.NestedScrollView>

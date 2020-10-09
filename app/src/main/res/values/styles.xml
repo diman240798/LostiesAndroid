@@ -148,4 +148,48 @@
         <item name="layout_behavior">@string/hide_bottom_view_on_scroll_behavior</item>
     </style>
 
+    <style name="registerParentRoot">
+        <item name="android:layout_width">@dimen/space0</item>
+        <item name="android:layout_height">@dimen/space80</item>
+        <item name="android:background">@drawable/bg_setting_menu_item</item>
+        <item name="android:layout_marginStart">@dimen/space16</item>
+        <item name="android:layout_marginEnd">@dimen/space16</item>
+        <item name="android:layout_marginTop">@dimen/space5</item>
+        <item name="android:layout_marginBottom">@dimen/space5</item>
+        <item name="layout_constraintStart_toStartOf">parent</item>
+        <item name="layout_constraintEnd_toEndOf">parent</item>
+        <item name="android:foreground">?android:selectableItemBackground</item>
+    </style>
+
+    <style name="UserActionTitle">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginTop">@dimen/space10</item>
+        <item name="android:fontFamily">@font/ubuntu_b</item>
+        <item name="android:textColor">@color/colorBlackText</item>
+        <item name="android:textSize">@dimen/space18</item>
+        <item name="layout_constraintEnd_toEndOf">parent</item>
+        <item name="layout_constraintStart_toStartOf">parent</item>
+        <item name="layout_constraintTop_toTopOf">parent</item>
+    </style>
+
+    <style name="UserActionImage">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="layout_constraintHorizontal_bias">0.37</item>
+        <item name="layout_constraintEnd_toEndOf">parent</item>
+        <item name="layout_constraintBottom_toBottomOf">parent</item>
+        <item name="layout_constraintStart_toStartOf">parent</item>
+        <item name="layout_constraintTop_toTopOf">parent</item>
+
+    </style>
+
+    <style name="UserActionText">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginStart">@dimen/space20</item>
+        <item name="android:textColor">@color/colorBlackText</item>
+        <item name="android:textSize">@dimen/text14</item>
+    </style>
+
 </resources>
