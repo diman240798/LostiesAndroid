@@ -1,9 +1,10 @@
 package nanicky.losties.android.core.di
 
-import nanicky.losties.android.core.data.local.*
-import androidx.room.Room
 import nanicky.losties.android.core.base.Localizer
-import org.koin.android.ext.koin.androidApplication
+import nanicky.losties.android.core.data.local.AuthNotifier
+import nanicky.losties.android.core.data.local.FirstTimeRunRepository
+import nanicky.losties.android.core.data.local.SettingsRepository
+import nanicky.losties.android.core.data.local.UserRepository
 import org.koin.dsl.module
 
 const val DB_NAME = "calendar.db"
@@ -27,10 +28,6 @@ fun localModule() = module {
 
     single {
         SettingsRepository(get())
-    }
-
-    single {
-        CalendarNotifier()
     }
 
     single {

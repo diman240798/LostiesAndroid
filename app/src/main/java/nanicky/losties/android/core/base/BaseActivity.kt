@@ -14,7 +14,6 @@ abstract class BaseActivity: AppCompatActivity() {
 
     val userRepository: UserRepository by inject()
 
-    val calendarNotifier: CalendarNotifier by inject()
     val authNotifier: AuthNotifier by inject()
 
     val l: Localizer by inject()
