@@ -18,11 +18,11 @@ fun Activity.provideProgressDialog(): AlertDialog =
     }.create()
 
 
-fun BaseActivity.showInfoAlertDialog(
+fun BaseActivity.getInfoAlertDialog(
     title: String,
     message: String,
     positiveAction: (DialogInterface, Int) -> Unit = { _, _ -> }
-) {
+): AlertDialog {
     val builder = AlertDialog.Builder(this)
 
     val dialog = builder
@@ -31,8 +31,8 @@ fun BaseActivity.showInfoAlertDialog(
         .setPositiveButton(l.tr(R.string.i_understand), positiveAction)
         .create()
 
-    dialog.show()
     dialog.setTypefaceInDialog(this)
+    return dialog
 }
 
 fun BaseActivity.showQuestionAlertDialog(

@@ -20,5 +20,6 @@
     <color name="colorBlackText">#000</color>
     <color name="colorHint">#456</color>
     <color name="colorBorderGray">#000</color>
+    <color name="colorBlack">#000</color>
 
 </resources>

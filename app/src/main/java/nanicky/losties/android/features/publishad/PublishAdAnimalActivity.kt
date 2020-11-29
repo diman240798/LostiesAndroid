@@ -4,24 +4,45 @@ import android.os.Bundle
 import android.view.View
 import android.widget.AdapterView
 import android.widget.EditText
-import androidx.appcompat.app.AppCompatActivity
 import kotlinx.android.synthetic.main.activity_publish_ad_animal.*
 import nanicky.losties.android.R
-import nanicky.losties.android.core.base.Localizer
-import nanicky.losties.android.core.extensions.visible
+import nanicky.losties.android.core.base.BaseActivity
 import nanicky.losties.android.core.ui.EmailTextChangeListener
-import org.koin.android.ext.android.inject
+import nanicky.losties.android.core.utils.checkPermissionsOrgetLocation
+import nanicky.losties.android.core.utils.getCompleteAddressString
+import nanicky.losties.losties.enums.PublicationTypes.*
+import nanicky.losties.losties.enums.toPublicationType
 
 
-class PublishAdAnimalActivity : AppCompatActivity() {
+class PublishAdAnimalActivity : BaseActivity() {
+    companion object {
+        const val ANIMAL_TYPE_EXTRA = "ANIMAL_TYPE_EXTRA"
+        const val MY_PERMISSIONS_REQUEST_LOCATION = 99
 
-    val l: Localizer by inject()
+        var LAST_ADDRESS_SINCE_LAUNCH : String? = null
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_publish_ad_animal)
 
-        initTypeAutoAutocomplete()
+        val type = intent.getStringExtra(ANIMAL_TYPE_EXTRA)
+
+        type?.let {
+            when (it.toPublicationType()) {
+                LOST -> {
+                    tvTitle.setText(R.string.lost_animal)
+                }
+                FOUND -> {
+                    tvTitle.setText(R.string.found_take_home)
+                }
+                SEEN -> {
+                    tvTitle.setText(R.string.seems_home)
+                }
+            }
+        }
+
+        initTypeSpinner()
 
         setUpEmail()
 
@@ -35,9 +56,40 @@ class PublishAdAnimalActivity : AppCompatActivity() {
         setUpClose(etSocNet1, ivCloseSoc1)
         setUpClose(etSocNet2, ivCloseSoc2)
 
+
+        if (LAST_ADDRESS_SINCE_LAUNCH != null) {
+            pbAddress.visibility = View.GONE
+            tilAddress.visibility = View.VISIBLE
+            etAddress.setText(LAST_ADDRESS_SINCE_LAUNCH)
+        } else {
+            tilAddress.visibility = View.GONE
+            pbAddress.visibility = View.VISIBLE
+
+            checkPermissionsOrgetLocation(l, this,
+                onComplete = { location ->
+                    val address = getCompleteAddressString(this, location)
+                    pbAddress.visibility = View.GONE
+                    tilAddress.visibility = View.VISIBLE
+                    if (address != null) {
+                        LAST_ADDRESS_SINCE_LAUNCH = address
+                        etAddress.setText(address)
+                    }
+                },
+                onError = {
+                    pbAddress.visibility = View.GONE
+                    tilAddress.visibility = View.VISIBLE
+                })
+        }
+
     }
 
-    private fun setUpAddButton(btAdd: View, view1 : View, view1Close : View, view2: View, view2Close: View) {
+    private fun setUpAddButton(
+        btAdd: View,
+        view1: View,
+        view1Close: View,
+        view2: View,
+        view2Close: View
+    ) {
         btAdd.setOnClickListener {
             if (view1.visibility != View.VISIBLE) {
                 view1.visibility = View.VISIBLE
@@ -49,7 +101,7 @@ class PublishAdAnimalActivity : AppCompatActivity() {
         }
     }
 
-    private fun initTypeAutoAutocomplete() {
+    private fun initTypeSpinner() {
         val autoItems = listOf<TextAndImage>(
             TextAndImage(l.tr(R.string.cat), R.drawable.ic_cat_mail),
             TextAndImage(l.tr(R.string.catty), R.drawable.ic_cat_female),
@@ -73,6 +125,18 @@ class PublishAdAnimalActivity : AppCompatActivity() {
             ) {
                 val imageId = autoItems[position].image
                 ivType.setImageResource(imageId)
+            }
+        }
+
+        spinnerType.isFocusableInTouchMode = true
+        spinnerType.setOnFocusChangeListener { v, hasFocus ->
+            if (hasFocus) {
+                if (spinnerType.windowToken != null) {
+                    spinnerType.performClick()
+                }
+                clTypeRoot.setBackgroundResource(R.drawable.backgr_white_with_blue_border)
+            } else {
+                clTypeRoot.setBackgroundResource(R.drawable.backgr_white_with_gray_border)
             }
         }
     }

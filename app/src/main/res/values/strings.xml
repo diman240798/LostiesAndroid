@@ -27,4 +27,7 @@
     <string name="read">Полистать</string>
     <string name="losties">Потеряшки</string>
     <string name="found_animals">Подобранные</string>
+    <string name="lost_animal">Потерял свою лапу(</string>
+    <string name="permission">Разрешение</string>
+    <string name="need_location_permissions">Следующие разрешения необходимы для определения адреса</string>
 </resources>

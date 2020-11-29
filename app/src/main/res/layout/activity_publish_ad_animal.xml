@@ -14,8 +14,8 @@
 
         <TextView
             android:id="@+id/tvTitle"
-            android:text="Нашел, беру себе!"
             style="@style/TitleTextView"
+            android:text="@string/found_take_home"
             tools:ignore="MissingConstraints" />
 
         <androidx.cardview.widget.CardView
@@ -58,13 +58,22 @@
             app:layout_constraintStart_toStartOf="@+id/vpPhotos"
             app:layout_constraintTop_toTopOf="@+id/vpPhotos" />
 
+        <ProgressBar
+            android:id="@+id/pbAddress"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/space20"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/vpPhotos" />
+
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/tilAddress"
             style="@style/TilFieldsTheme"
             android:layout_marginTop="@dimen/space20"
             android:hint="@string/address"
-            app:layout_constraintTop_toBottomOf="@id/vpPhotos"
+            app:layout_constraintTop_toBottomOf="@id/pbAddress"
             tools:ignore="MissingConstraints">
 
             <com.google.android.material.textfield.TextInputEditText
@@ -77,11 +86,11 @@
             android:id="@+id/clTypeRoot"
             android:layout_width="match_parent"
             android:layout_height="@dimen/space70"
-            app:layout_constraintTop_toBottomOf="@id/tilAddress"
-            android:background="@drawable/backgr_white_with_border"
-            android:layout_marginTop="@dimen/space16"
             android:layout_marginStart="@dimen/space16"
-            android:layout_marginEnd="@dimen/space16">
+            android:layout_marginTop="@dimen/space16"
+            android:layout_marginEnd="@dimen/space16"
+            android:background="@drawable/backgr_white_with_gray_border"
+            app:layout_constraintTop_toBottomOf="@id/tilAddress">
 
             <ImageView
                 android:id="@+id/ivType"
@@ -89,13 +98,13 @@
                 android:layout_height="@dimen/space50"
                 android:layout_gravity="center|left"
                 android:layout_marginStart="12dp"
-                android:src="@drawable/ic_cat_mail"/>
+                android:src="@drawable/ic_cat_mail" />
 
             <androidx.appcompat.widget.AppCompatSpinner
                 android:id="@+id/spinnerType"
+                style="@style/SpinnerPublish"
                 android:layout_gravity="center|right"
-                android:layout_marginStart="@dimen/space50"
-                style="@style/SpinnerPublish" />
+                android:layout_marginStart="@dimen/space50" />
 
         </FrameLayout>
 
@@ -103,18 +112,18 @@
             android:id="@+id/clPhoneRoot"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:layout_constraintTop_toBottomOf="@id/clTypeRoot"
-            android:background="@drawable/backgr_white_with_border"
-            android:layout_marginTop="@dimen/space16"
             android:layout_marginStart="@dimen/space16"
-            android:layout_marginEnd="@dimen/space16">
+            android:layout_marginTop="@dimen/space16"
+            android:layout_marginEnd="@dimen/space16"
+            android:background="@drawable/backgr_white_with_border"
+            app:layout_constraintTop_toBottomOf="@id/clTypeRoot">
 
             <ImageView
                 android:id="@+id/ivPhone"
                 android:layout_width="@dimen/space50"
                 android:layout_height="@dimen/space50"
-                android:layout_marginTop="@dimen/space10"
                 android:layout_marginStart="12dp"
+                android:layout_marginTop="@dimen/space10"
                 android:src="@drawable/ic_phone"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -123,7 +132,7 @@
                 android:id="@+id/etPhone0"
                 style="@style/PhoneEditText"
                 android:layout_marginStart="@dimen/space16"
-                android:layout_marginTop="@dimen/space12"
+                android:layout_marginTop="@dimen/space20"
                 android:layout_marginEnd="@dimen/space12"
                 app:layout_constraintEnd_toStartOf="@+id/ivAddPhone"
                 app:layout_constraintStart_toEndOf="@id/ivPhone"
@@ -133,46 +142,46 @@
                 android:id="@+id/ivAddPhone"
                 android:layout_width="@dimen/space50"
                 android:layout_height="@dimen/space50"
-                android:src="@drawable/ic_plus"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
                 android:layout_marginTop="@dimen/space10"
-                android:layout_marginEnd="@dimen/space12" />
+                android:layout_marginEnd="@dimen/space12"
+                android:src="@drawable/ic_plus"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
 
             <nanicky.losties.android.core.ui.MaskedEditText
-                android:visibility="gone"
                 android:id="@+id/etPhone1"
                 style="@style/PhoneEditText"
                 android:layout_marginTop="@dimen/space12"
-                app:layout_constraintStart_toStartOf="@+id/etPhone0"
+                android:visibility="gone"
                 app:layout_constraintEnd_toEndOf="@id/etPhone0"
+                app:layout_constraintStart_toStartOf="@+id/etPhone0"
                 app:layout_constraintTop_toBottomOf="@id/etPhone0" />
 
             <ImageView
-                android:visibility="gone"
                 android:id="@+id/ivClosePhone1"
                 style="@style/ImageViewClosePublish"
+                android:visibility="gone"
+                app:layout_constraintBottom_toBottomOf="@id/etPhone1"
                 app:layout_constraintStart_toEndOf="@id/etPhone1"
-                app:layout_constraintTop_toTopOf="@id/etPhone1"
-                app:layout_constraintBottom_toBottomOf="@id/etPhone1"/>
+                app:layout_constraintTop_toTopOf="@id/etPhone1" />
 
             <nanicky.losties.android.core.ui.MaskedEditText
-                android:visibility="gone"
                 android:id="@+id/etPhone2"
                 style="@style/PhoneEditText"
                 android:layout_marginTop="@dimen/space12"
-                app:layout_constraintStart_toStartOf="@+id/etPhone0"
+                android:visibility="gone"
                 app:layout_constraintEnd_toEndOf="@id/etPhone0"
-                app:layout_constraintTop_toBottomOf="@id/etPhone1"/>
+                app:layout_constraintStart_toStartOf="@+id/etPhone0"
+                app:layout_constraintTop_toBottomOf="@id/etPhone1" />
 
             <ImageView
-                android:visibility="gone"
                 android:id="@+id/ivClosePhone2"
                 style="@style/ImageViewClosePublish"
+                android:visibility="gone"
+                app:layout_constraintBottom_toBottomOf="@id/etPhone2"
                 app:layout_constraintStart_toEndOf="@id/etPhone2"
-                app:layout_constraintTop_toTopOf="@id/etPhone2"
-                app:layout_constraintBottom_toBottomOf="@id/etPhone2"/>
+                app:layout_constraintTop_toTopOf="@id/etPhone2" />
 
             <View
                 android:layout_width="match_parent"
@@ -193,8 +202,8 @@
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/etMail"
                 style="@style/TextInputEditTextPublish"
-                android:inputType="textEmailAddress"
-                android:drawableStart="@drawable/ic_mail" />
+                android:drawableStart="@drawable/ic_mail"
+                android:inputType="textEmailAddress" />
 
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -202,18 +211,18 @@
             android:id="@+id/clNetworkRoot"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:layout_constraintTop_toBottomOf="@id/tilMail"
-            android:background="@drawable/backgr_white_with_border"
-            android:layout_marginTop="@dimen/space16"
             android:layout_marginStart="@dimen/space16"
-            android:layout_marginEnd="@dimen/space16">
+            android:layout_marginTop="@dimen/space16"
+            android:layout_marginEnd="@dimen/space16"
+            android:background="@drawable/backgr_white_with_border"
+            app:layout_constraintTop_toBottomOf="@id/tilMail">
 
             <ImageView
                 android:id="@+id/ivSocialNetwork"
                 android:layout_width="@dimen/space50"
                 android:layout_height="@dimen/space50"
-                android:layout_marginTop="@dimen/space10"
                 android:layout_marginStart="12dp"
+                android:layout_marginTop="@dimen/space10"
                 android:src="@drawable/ic_social_network"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -222,7 +231,7 @@
                 android:id="@+id/etSocNet0"
                 style="@style/MailEditText"
                 android:layout_marginStart="@dimen/space16"
-                android:layout_marginTop="@dimen/space12"
+                android:layout_marginTop="@dimen/space20"
                 android:layout_marginEnd="@dimen/space12"
                 app:layout_constraintEnd_toStartOf="@+id/ivAddSocNet"
                 app:layout_constraintStart_toEndOf="@id/ivSocialNetwork"
@@ -232,46 +241,46 @@
                 android:id="@+id/ivAddSocNet"
                 android:layout_width="@dimen/space50"
                 android:layout_height="@dimen/space50"
-                android:src="@drawable/ic_plus"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
                 android:layout_marginTop="@dimen/space10"
-                android:layout_marginEnd="@dimen/space12" />
+                android:layout_marginEnd="@dimen/space12"
+                android:src="@drawable/ic_plus"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
 
             <EditText
-                android:visibility="gone"
                 android:id="@+id/etSocNet1"
                 style="@style/MailEditText"
                 android:layout_marginTop="@dimen/space12"
-                app:layout_constraintStart_toStartOf="@+id/etSocNet0"
+                android:visibility="gone"
                 app:layout_constraintEnd_toEndOf="@id/etSocNet0"
+                app:layout_constraintStart_toStartOf="@+id/etSocNet0"
                 app:layout_constraintTop_toBottomOf="@id/etSocNet0" />
 
             <ImageView
-                android:visibility="gone"
                 android:id="@+id/ivCloseSoc1"
                 style="@style/ImageViewClosePublish"
+                android:visibility="gone"
+                app:layout_constraintBottom_toBottomOf="@id/etSocNet1"
                 app:layout_constraintStart_toEndOf="@id/etSocNet1"
-                app:layout_constraintTop_toTopOf="@id/etSocNet1"
-                app:layout_constraintBottom_toBottomOf="@id/etSocNet1"/>
+                app:layout_constraintTop_toTopOf="@id/etSocNet1" />
 
             <EditText
-                android:visibility="gone"
                 android:id="@+id/etSocNet2"
                 style="@style/MailEditText"
                 android:layout_marginTop="@dimen/space12"
-                app:layout_constraintStart_toStartOf="@+id/etSocNet1"
-                app:layout_constraintEnd_toEndOf="@id/etSocNet1"
-                app:layout_constraintTop_toBottomOf="@id/etSocNet1"/>
+                android:visibility="gone"
+                app:layout_constraintEnd_toEndOf="@id/etSocNet0"
+                app:layout_constraintStart_toStartOf="@+id/etSocNet0"
+                app:layout_constraintTop_toBottomOf="@id/etSocNet1" />
 
             <ImageView
-                android:visibility="gone"
                 android:id="@+id/ivCloseSoc2"
                 style="@style/ImageViewClosePublish"
+                android:visibility="gone"
+                app:layout_constraintBottom_toBottomOf="@id/etSocNet2"
                 app:layout_constraintStart_toEndOf="@id/etSocNet2"
-                app:layout_constraintTop_toTopOf="@id/etSocNet2"
-                app:layout_constraintBottom_toBottomOf="@id/etSocNet2"/>
+                app:layout_constraintTop_toTopOf="@id/etSocNet2" />
 
             <View
                 android:layout_width="match_parent"

@@ -128,10 +128,10 @@
     </style>
 
     <style name="ImageViewClosePublish">
-        <item name="android:layout_width">@dimen/space50</item>
-        <item name="android:layout_height">@dimen/space50</item>
-        <item name="android:layout_marginTop">@dimen/space10</item>
-        <item name="android:layout_marginStart">@dimen/space12</item>
+        <item name="android:layout_width">@dimen/space25</item>
+        <item name="android:layout_height">@dimen/space25</item>
+        <item name="android:layout_marginTop">@dimen/space5</item>
+        <item name="android:layout_marginStart">@dimen/space25</item>
         <item name="android:src">@drawable/ic_close</item>
     </style>
 

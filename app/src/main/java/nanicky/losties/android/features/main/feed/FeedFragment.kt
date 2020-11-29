@@ -33,7 +33,9 @@ class FeedFragment: Fragment() {
 
         val adapter = GroupAdapter<GroupieViewHolder>()
         adapter.add(FeedListItem())
-        adapter.add(FeedFiltersItem())
+
+        val setFirstScreen: () -> Unit = { vpFeed.setCurrentItem(0, true) }
+        adapter.add(FeedFiltersItem(setFirstScreen))
         vpFeed.adapter = adapter
 
         ivOpenFilters.setOnClickListener {
