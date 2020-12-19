@@ -11,7 +11,7 @@ import androidx.core.content.ContextCompat
 import nanicky.losties.android.R
 import nanicky.losties.android.core.base.BaseActivity
 import nanicky.losties.android.core.base.Localizer
-import nanicky.losties.android.core.extensions.getInfoAlertDialog
+import nanicky.losties.android.core.extensions.showInfoAlertDialog
 import nanicky.losties.android.features.publishad.PublishAdAnimalActivity
 import timber.log.Timber
 import java.util.*
@@ -25,15 +25,12 @@ fun checkPermissionsOrgetLocation(
     val checkSelfPermission =
         ContextCompat.checkSelfPermission(activity, Manifest.permission.ACCESS_FINE_LOCATION)
     if (checkSelfPermission != PackageManager.PERMISSION_GRANTED) {
-        val alertDialog = activity.getInfoAlertDialog(
+        activity.showInfoAlertDialog(
             l.tr(R.string.permission),
-            l.tr(R.string.need_location_permissions)
-        ) { _, _ -> requestLocationPermission(activity) }
-
-        alertDialog.setOnCancelListener {
-            onError()
-        }
-        alertDialog.show()
+            l.tr(R.string.need_location_permissions),
+            { _, _ -> requestLocationPermission(activity) },
+            { onError() }
+        )
     } else {
         getLocationAndClose(activity, onComplete , onError)
     }
@@ -49,14 +46,14 @@ fun requestLocationPermission(activity: BaseActivity) {
 fun getCompleteAddressString(
     context: Context,
     location: Location
-): String? = getCompleteAddressString(context, location.latitude, location.longitude)
+): GeoResult = getCompleteAddressString(context, location.latitude, location.longitude)
 
 
 fun getCompleteAddressString(
     context: Context,
     latitude: Double,
     longtitude: Double
-): String? {
+): GeoResult {
     var strAdd : String? = null
     val geocoder = Geocoder(context, Locale.getDefault())
     try {
@@ -77,6 +74,7 @@ fun getCompleteAddressString(
         e.printStackTrace()
         Timber.w("My address: Canont get Address!")
     }
-    return strAdd
+    return GeoResult(strAdd, longtitude, latitude)
 }
 
+class GeoResult(val strAdd: String?, val longtitude: Double, val latitude: Double)

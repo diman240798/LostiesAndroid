@@ -18,69 +18,64 @@
             android:text="@string/found_take_home"
             tools:ignore="MissingConstraints" />
 
-        <androidx.cardview.widget.CardView
+        <androidx.viewpager2.widget.ViewPager2
             android:id="@+id/vpPhotos"
             android:layout_width="match_parent"
             android:layout_height="200dp"
-            android:layout_margin="@dimen/space16"
-            app:cardCornerRadius="@dimen/space16"
-
-
+            android:layout_marginTop="@dimen/space16"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tvTitle">
+            app:layout_constraintTop_toBottomOf="@id/tvTitle"/>
 
+        <me.relex.circleindicator.CircleIndicator3
+            android:id="@+id/indicator"
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            app:ci_drawable="@drawable/ic_image_indicator_blue"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="@id/vpPhotos"
+            android:layout_marginBottom="8dp"
 
-            <com.makeramen.roundedimageview.RoundedImageView
-                android:id="@+id/ivCatPhotoTake"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:scaleType="fitXY"
-                android:src="@color/colorWhite"
-                app:riv_border_color="@color/colorBlueText"
-                app:riv_border_width="3dp"
-                app:riv_corner_radius="16dp"
-                app:riv_mutate_background="true"
-                app:riv_tile_mode="repeat" />
+            />
 
-        </androidx.cardview.widget.CardView>
-
-        <ImageView
+        <Button
             android:id="@+id/ivLoadPhoto"
-            android:layout_width="@dimen/space120"
-            android:layout_height="@dimen/space120"
-            android:elevation="2dp"
+            android:layout_width="@dimen/space0"
+            android:layout_height="@dimen/space80"
+            android:text="@string/load_photo"
 
-            android:src="@drawable/ic_photo"
-
-            app:layout_constraintBottom_toBottomOf="@+id/vpPhotos"
+            android:layout_marginTop="@dimen/space20"
             app:layout_constraintEnd_toEndOf="@+id/vpPhotos"
             app:layout_constraintStart_toStartOf="@+id/vpPhotos"
-            app:layout_constraintTop_toTopOf="@+id/vpPhotos" />
+            app:layout_constraintTop_toBottomOf="@+id/vpPhotos" />
 
-        <ProgressBar
-            android:id="@+id/pbAddress"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/space20"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/vpPhotos" />
+        <ImageView
+            android:layout_width="@dimen/space50"
+            android:layout_height="@dimen/space50"
+            android:layout_marginStart="8dp"
+            app:layout_constraintBottom_toBottomOf="@+id/ivLoadPhoto"
+            app:layout_constraintStart_toStartOf="@+id/ivLoadPhoto"
+            app:layout_constraintTop_toTopOf="@+id/ivLoadPhoto"
+            android:translationZ="10dp"
+            app:srcCompat="@drawable/ic_photo" />
 
 
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/tilAddress"
+            android:id="@+id/tilAnimalName"
             style="@style/TilFieldsTheme"
             android:layout_marginTop="@dimen/space20"
-            android:hint="@string/address"
-            app:layout_constraintTop_toBottomOf="@id/pbAddress"
+            android:hint="@string/animal_name"
+            app:layout_constraintTop_toBottomOf="@id/ivLoadPhoto"
             tools:ignore="MissingConstraints">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/etAddress"
+                android:id="@+id/etAnimalName"
                 style="@style/TextInputEditTextPublish"
                 android:drawableStart="@drawable/ic_address" />
+
         </com.google.android.material.textfield.TextInputLayout>
+
 
         <FrameLayout
             android:id="@+id/clTypeRoot"
@@ -90,7 +85,7 @@
             android:layout_marginTop="@dimen/space16"
             android:layout_marginEnd="@dimen/space16"
             android:background="@drawable/backgr_white_with_gray_border"
-            app:layout_constraintTop_toBottomOf="@id/tilAddress">
+            app:layout_constraintTop_toBottomOf="@id/tilAnimalName">
 
             <ImageView
                 android:id="@+id/ivType"
@@ -108,6 +103,62 @@
 
         </FrameLayout>
 
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/tilBreed"
+            style="@style/TilFieldsTheme"
+            android:layout_marginTop="@dimen/space20"
+            android:hint="@string/breed"
+            app:layout_constraintTop_toBottomOf="@id/clTypeRoot"
+            tools:ignore="MissingConstraints">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/etBreed"
+                style="@style/TextInputEditTextPublish"
+                android:drawableStart="@drawable/ic_address" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/tilUserName"
+            style="@style/TilFieldsTheme"
+            android:layout_marginTop="@dimen/space20"
+            android:hint="@string/user_name"
+            app:layout_constraintTop_toBottomOf="@id/tilBreed"
+            tools:ignore="MissingConstraints">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/etUserName"
+                style="@style/TextInputEditTextPublish"
+                android:drawableStart="@drawable/ic_user"
+                android:drawableTint="@color/colorBlueText" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <ProgressBar
+            android:id="@+id/pbAddress"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/space20"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tilUserName" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/tilAddress"
+            style="@style/TilFieldsTheme"
+            android:layout_marginTop="@dimen/space20"
+            android:hint="@string/address"
+            app:layout_constraintTop_toBottomOf="@id/pbAddress"
+            tools:ignore="MissingConstraints">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/etAddress"
+                style="@style/TextInputEditTextPublish"
+                android:drawableStart="@drawable/ic_address" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/clPhoneRoot"
             android:layout_width="match_parent"
@@ -116,7 +167,7 @@
             android:layout_marginTop="@dimen/space16"
             android:layout_marginEnd="@dimen/space16"
             android:background="@drawable/backgr_white_with_border"
-            app:layout_constraintTop_toBottomOf="@id/clTypeRoot">
+            app:layout_constraintTop_toBottomOf="@id/tilAddress">
 
             <ImageView
                 android:id="@+id/ivPhone"
@@ -212,8 +263,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/space16"
-            android:layout_marginTop="@dimen/space16"
             android:layout_marginEnd="@dimen/space16"
+            android:layout_marginTop="@dimen/space16"
             android:background="@drawable/backgr_white_with_border"
             app:layout_constraintTop_toBottomOf="@id/tilMail">
 
@@ -289,10 +340,27 @@
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
+        <Button
+            android:id="@+id/btSend"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/space70"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginStart="@dimen/space16"
+            android:layout_marginEnd="@dimen/space16"
+            android:layout_marginTop="@dimen/space16"
+            app:layout_constraintTop_toBottomOf="@id/clNetworkRoot"
+            android:fontFamily="@font/ubuntu_r"
+            android:text="@string/send"
+            android:textAllCaps="false"
+            android:textColor="@color/colorWhite" />
+
         <View
             android:layout_width="match_parent"
             android:layout_height="@dimen/space16"
             app:layout_constraintTop_toBottomOf="@id/clNetworkRoot" />
 
+
     </androidx.constraintlayout.widget.ConstraintLayout>
+
 </androidx.core.widget.NestedScrollView>

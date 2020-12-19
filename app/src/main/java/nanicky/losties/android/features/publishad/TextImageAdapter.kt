@@ -11,7 +11,7 @@ import nanicky.losties.android.R
 
 class TextImageAdapter(
     context: Context,
-    val items: List<TextAndImage>,
+    val items: List<TextImageAnimalType>,
     val texts: List<String> = items.map { it.text }
 ) : ArrayAdapter<String>(context, R.layout.dropdown_image_text_item, R.id.text, texts) {
 
@@ -57,7 +57,7 @@ class TextImageAdapter(
         return getMyItem(position).image
     }
 
-    fun getMyItem(position: Int): TextAndImage {
+    fun getMyItem(position: Int): TextImageAnimalType {
         val itemText = getItem(position)
         return items[texts.indexOf(itemText)]
     }

@@ -30,4 +30,13 @@
     <string name="lost_animal">Потерял свою лапу(</string>
     <string name="permission">Разрешение</string>
     <string name="need_location_permissions">Следующие разрешения необходимы для определения адреса</string>
+    <string name="send">Отправить</string>
+    <string name="choose_photo_please">Пожалуйста, выберите фото</string>
+    <string name="required_for_animal_identification">Это необходимо чтобы распознать животное</string>
+    <string name="please_specify_address">Пожалуйста, укажите аддресс</string>
+    <string name="animal_name">Кличка животного</string>
+    <string name="breed">Порода</string>
+    <string name="user_name">Как к вам обращаться</string>
+    <string name="load_photo">Загрузить фото</string>
+    <string name="error_check_inet_connection">Проверте наличие интернет соединения</string>
 </resources>

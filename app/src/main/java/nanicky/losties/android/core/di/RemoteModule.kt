@@ -16,7 +16,7 @@ import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import javax.net.ssl.HostnameVerifier
 
-const val ENTRY_POINT = "https://localhost:9000"
+const val ENTRY_POINT = "http://192.168.1.95:8080"
 
 const val DEFAULT_HTTP_CLIENT = "default_http_client"
 const val TOKEN_HTTP_CLIENT = "token_http_client"
@@ -64,8 +64,8 @@ fun createOkHttpClient(): OkHttpClient {
         .build()
 
     return addLoggingInterceptorIfDebug(OkHttpClient.Builder())
-        .sslSocketFactory(certificates.sslSocketFactory(), certificates.trustManager)
-        .hostnameVerifier(HostnameVerifier { _, _ -> true })
+//        .sslSocketFactory(certificates.sslSocketFactory(), certificates.trustManager)
+//        .hostnameVerifier(HostnameVerifier { _, _ -> true })
         .build()
 
 }

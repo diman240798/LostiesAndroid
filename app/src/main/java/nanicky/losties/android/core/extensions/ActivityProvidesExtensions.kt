@@ -8,7 +8,6 @@ import android.view.View
 import androidx.appcompat.app.AlertDialog
 import com.google.android.material.bottomsheet.BottomSheetBehavior
 import com.google.android.material.bottomsheet.BottomSheetDialog
-import kotlinx.coroutines.NonCancellable.cancel
 
 
 fun Activity.provideProgressDialog(): AlertDialog =
@@ -18,28 +17,31 @@ fun Activity.provideProgressDialog(): AlertDialog =
     }.create()
 
 
-fun BaseActivity.getInfoAlertDialog(
+fun BaseActivity.showInfoAlertDialog(
     title: String,
     message: String,
-    positiveAction: (DialogInterface, Int) -> Unit = { _, _ -> }
-): AlertDialog {
+    positiveAction: (DialogInterface, Int) -> Unit = { _, _ -> },
+    onCancel: () -> Unit = {}
+) {
     val builder = AlertDialog.Builder(this)
 
     val dialog = builder
         .setTitle(title)
         .setMessage(message)
         .setPositiveButton(l.tr(R.string.i_understand), positiveAction)
+        .setOnCancelListener { onCancel() }
         .create()
 
     dialog.setTypefaceInDialog(this)
-    return dialog
+    dialog.show()
 }
 
 fun BaseActivity.showQuestionAlertDialog(
     title: String,
     message: String,
     positiveAction: (DialogInterface, Int) -> Unit,
-    negativeAction: (DialogInterface, Int) -> Unit = {_,_ -> }) {
+    negativeAction: (DialogInterface, Int) -> Unit = {_,_ -> }
+) {
     val builder = AlertDialog.Builder(this)
 
     val dialog = builder
