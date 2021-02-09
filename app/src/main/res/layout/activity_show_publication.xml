@@ -1,0 +1,252 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorWhite"
+    tools:context=".features.showpublication.ShowPublicationActivity">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+        <TextView
+            android:id="@+id/tvTitle"
+            style="@style/TitleTextView"
+            android:text="@string/lostie"
+            tools:ignore="MissingConstraints" />
+
+        <androidx.viewpager2.widget.ViewPager2
+            android:id="@+id/vpPhotos"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:layout_marginTop="@dimen/space16"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvTitle" />
+
+        <me.relex.circleindicator.CircleIndicator3
+            android:id="@+id/indicator"
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:layout_marginBottom="8dp"
+            app:ci_drawable="@drawable/ic_image_indicator_blue"
+            app:layout_constraintBottom_toBottomOf="@id/vpPhotos"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+
+            />
+
+        <LinearLayout
+            android:id="@+id/lAnimalName"
+            app:layout_constraintTop_toBottomOf="@id/vpPhotos"
+            style="@style/ShowPublicationLayout"
+            tools:ignore="MissingConstraints">
+
+            <ImageView
+                android:id="@+id/ivAnimalName"
+                android:layout_width="@dimen/space50"
+                android:layout_height="@dimen/space50"
+                android:layout_gravity="center"
+                android:layout_marginStart="12dp"
+                android:src="@drawable/ic_animal_name" />
+
+            <TextView
+                android:id="@+id/tvAnimalName"
+                android:text="Муся"
+                style="@style/ShowPublicationTextView" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/lAnimalType"
+            app:layout_constraintTop_toBottomOf="@id/lAnimalName"
+            style="@style/ShowPublicationLayout"
+            tools:ignore="MissingConstraints">
+
+            <ImageView
+                android:id="@+id/ivAnimalType"
+                android:layout_width="@dimen/space50"
+                android:layout_height="@dimen/space50"
+                android:layout_gravity="center"
+                android:layout_marginStart="12dp"
+                android:src="@drawable/ic_cat_female" />
+
+            <TextView
+                android:id="@+id/tvAnimalType"
+                android:text="@string/catty"
+                style="@style/ShowPublicationTextView" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/lAnimalBreed"
+            app:layout_constraintTop_toBottomOf="@id/lAnimalType"
+            style="@style/ShowPublicationLayout"
+            tools:ignore="MissingConstraints">
+
+            <ImageView
+                android:id="@+id/ivAnimalBreed"
+                android:layout_width="@dimen/space50"
+                android:layout_height="@dimen/space50"
+                android:layout_gravity="center"
+                android:layout_marginStart="12dp"
+                android:src="@drawable/ic_breed" />
+
+            <TextView
+                android:id="@+id/tvAnimalBreed"
+                android:text="Боксер"
+                style="@style/ShowPublicationTextView" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/lUserName"
+            app:layout_constraintTop_toBottomOf="@id/lAnimalBreed"
+            style="@style/ShowPublicationLayout"
+            tools:ignore="MissingConstraints">
+
+            <ImageView
+                android:id="@+id/ivUserName"
+                android:layout_width="@dimen/space50"
+                android:layout_height="@dimen/space50"
+                android:layout_gravity="center"
+                android:layout_marginStart="12dp"
+                android:src="@drawable/ic_user_name" />
+
+            <TextView
+                android:id="@+id/tvUserName"
+                android:text="Наташа"
+                style="@style/ShowPublicationTextView" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/lAddress"
+            app:layout_constraintTop_toBottomOf="@id/lUserName"
+            style="@style/ShowPublicationLayout"
+            tools:ignore="MissingConstraints">
+
+             <ImageView
+                android:id="@+id/ivAddress"
+                android:layout_width="@dimen/space50"
+                android:layout_height="@dimen/space50"
+                android:layout_gravity="center"
+                android:layout_marginStart="12dp"
+                android:src="@drawable/ic_address" />
+
+            <TextView
+                android:id="@+id/tvAddress"
+                android:text="1600 Amphitheatre Pkwy, Mountain View, CA 94043, USA"
+                style="@style/ShowPublicationTextView" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/lPhone"
+            app:layout_constraintTop_toBottomOf="@id/lAddress"
+            android:layout_height="wrap_content"
+            style="@style/ShowPublicationLayout"
+            tools:ignore="MissingConstraints">
+
+             <ImageView
+                android:id="@+id/ivPhone"
+                android:layout_width="@dimen/space50"
+                android:layout_height="@dimen/space50"
+                android:layout_gravity="center"
+                android:layout_marginStart="12dp"
+                android:src="@drawable/ic_phone" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/space16"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tvPhone0"
+                    android:text="89287767654"
+                    android:layout_marginTop="@dimen/space10"
+                    style="@style/ShowPublicationTextView" />
+
+                <TextView
+                    android:visibility="gone"
+                    android:id="@+id/tvPhone1"
+                    android:text="89287767654"
+                    android:layout_marginTop="@dimen/space20"
+                    style="@style/ShowPublicationTextView" />
+
+                <TextView
+                    android:visibility="gone"
+                    android:id="@+id/tvPhone2"
+                    android:text="89287767654"
+                    android:layout_marginTop="@dimen/space20"
+                    style="@style/ShowPublicationTextView" />
+            </LinearLayout>
+        </LinearLayout>
+
+
+
+        <LinearLayout
+            android:id="@+id/lMain"
+            app:layout_constraintTop_toBottomOf="@id/lPhone"
+            style="@style/ShowPublicationLayout"
+            tools:ignore="MissingConstraints">
+
+            <ImageView
+                android:id="@+id/ivMail"
+                android:layout_width="@dimen/space50"
+                android:layout_height="@dimen/space50"
+                android:layout_gravity="center"
+                android:layout_marginStart="12dp"
+                android:src="@drawable/ic_mail" />
+
+            <TextView
+                android:id="@+id/tvMail"
+                android:text="diman@yandex.ru"
+                style="@style/ShowPublicationTextView" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/lSocial"
+            app:layout_constraintTop_toBottomOf="@id/lMain"
+            android:layout_height="wrap_content"
+            style="@style/ShowPublicationLayout"
+            tools:ignore="MissingConstraints">
+
+            <ImageView
+                android:id="@+id/ivSocial"
+                android:layout_width="@dimen/space50"
+                android:layout_height="@dimen/space50"
+                android:layout_gravity="center"
+                android:layout_marginStart="12dp"
+                android:src="@drawable/ic_social_network" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/space16"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tvSocial0"
+                    android:text="https://vk.com/terminator"
+                    android:layout_marginTop="@dimen/space10"
+                    style="@style/ShowPublicationTextView" />
+
+                <TextView
+                    android:visibility="gone"
+                    android:id="@+id/tvSocial1"
+                    android:text="https://vk.com/terminator"
+                    android:layout_marginTop="@dimen/space20"
+                    style="@style/ShowPublicationTextView" />
+
+                <TextView
+                    android:visibility="gone"
+                    android:id="@+id/tvSocial2"
+                    android:text="https://vk.com/terminator"
+                    android:layout_marginTop="@dimen/space20"
+                    style="@style/ShowPublicationTextView" />
+            </LinearLayout>
+        </LinearLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.core.widget.NestedScrollView>

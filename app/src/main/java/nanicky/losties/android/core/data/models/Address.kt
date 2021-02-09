@@ -1,4 +1,4 @@
-package nanicky.losties.android.features.model
+package nanicky.losties.android.core.data.models
 
 import java.util.*
 

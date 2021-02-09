@@ -1,4 +1,4 @@
-package nanicky.losties.losties.enums
+package nanicky.losties.android.features.enums
 
 enum class PublicationTypes {
     LOST, SEEN, FOUND

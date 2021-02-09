@@ -21,10 +21,10 @@ import nanicky.losties.android.core.utils.checkPermissionsOrgetLocation
 import nanicky.losties.android.core.utils.getCompleteAddressString
 import nanicky.losties.android.features.common.requests.AddAnimalRequest
 import nanicky.losties.android.features.entity.GeoAddress
-import nanicky.losties.android.features.model.Animal
-import nanicky.losties.android.features.model.UserData
-import nanicky.losties.losties.enums.PublicationTypes.*
-import nanicky.losties.losties.enums.toPublicationType
+import nanicky.losties.android.core.data.models.Animal
+import nanicky.losties.android.core.data.models.UserData
+import nanicky.losties.android.features.enums.PublicationTypes.*
+import nanicky.losties.android.features.enums.toPublicationType
 import nanicky.losties.losties.util.AnimalType
 import org.koin.android.viewmodel.ext.android.viewModel
 import java.io.File
@@ -54,13 +54,13 @@ class PublishAdAnimalActivity : BaseActivity() {
         publicationType?.let {
             when (it.toPublicationType()) {
                 LOST -> {
-                    tvTitle.setText(R.string.lost_animal)
+                    tvTitle.text = l.tr(R.string.lost_animal)
                 }
                 FOUND -> {
-                    tvTitle.setText(R.string.found_take_home)
+                    tvTitle.text = l.tr(R.string.found_take_home)
                 }
                 SEEN -> {
-                    tvTitle.setText(R.string.seems_home)
+                    tvTitle.text = l.tr(R.string.seems_home)
                 }
             }
         }
@@ -152,7 +152,12 @@ class PublishAdAnimalActivity : BaseActivity() {
             val latitude = LAST_ADDRESS_SINCE_LAUNCH?.latitude ?: 0.0
 
             val addAnimalRequest = AddAnimalRequest(
-                Animal(UUID.randomUUID(), animalName, type, breed),
+                Animal(
+                    UUID.randomUUID(),
+                    animalName,
+                    type,
+                    breed
+                ),
                 UserData(
                     UUID.randomUUID(),
                     userName,

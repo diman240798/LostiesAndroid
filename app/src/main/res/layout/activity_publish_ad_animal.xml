@@ -72,7 +72,7 @@
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/etAnimalName"
                 style="@style/TextInputEditTextPublish"
-                android:drawableStart="@drawable/ic_address" />
+                android:drawableStart="@drawable/ic_animal_name" />
 
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -115,7 +115,7 @@
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/etBreed"
                 style="@style/TextInputEditTextPublish"
-                android:drawableStart="@drawable/ic_address" />
+                android:drawableStart="@drawable/ic_breed" />
 
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -130,8 +130,7 @@
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/etUserName"
                 style="@style/TextInputEditTextPublish"
-                android:drawableStart="@drawable/ic_user"
-                android:drawableTint="@color/colorBlueText" />
+                android:drawableStart="@drawable/ic_user_name" />
 
         </com.google.android.material.textfield.TextInputLayout>
 

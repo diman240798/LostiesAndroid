@@ -71,6 +71,7 @@
     <dimen name="space3">3dp</dimen>
     <dimen name="space2">2dp</dimen>
     <dimen name="space0">0dp</dimen>
+    <dimen name="space22">22dp</dimen>
 
 
 </resources>

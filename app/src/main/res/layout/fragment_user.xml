@@ -10,19 +10,16 @@
         android:layout_height="wrap_content">
 
         <ImageView
-            android:id="@+id/ivPhoto"
+            android:id="@+id/ivPhotoUser"
             android:layout_width="100dp"
             android:layout_height="100dp"
 
-
             android:layout_marginTop="@dimen/space56"
-            android:src="@drawable/ic_photo"
+            android:src="@drawable/ic_phone"
 
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-
-            />
+            app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -34,7 +31,7 @@
             android:visibility="gone"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/ivPhoto"
+            app:layout_constraintTop_toBottomOf="@id/ivPhotoUser"
             tools:text="Name Surname" />
 
 
@@ -48,13 +45,13 @@
             android:visibility="visible"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/ivPhoto" />
+            app:layout_constraintTop_toBottomOf="@id/ivPhotoUser" />
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/clRootFacebook"
             style="@style/registerParentRoot"
             android:layout_height="@dimen/space55"
-            android:layout_marginTop="@dimen/space60"
+            android:layout_marginTop="@dimen/space16"
             android:clickable="true"
             android:focusable="true"
             app:layout_constraintTop_toBottomOf="@id/btWhyRegister">
@@ -105,7 +102,7 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/space16"
+            android:layout_marginTop="@dimen/space50"
             app:layout_constraintTop_toBottomOf="@id/clRootVk">
 
             <androidx.constraintlayout.widget.ConstraintLayout
@@ -131,19 +128,14 @@
                     android:focusable="true"
                     app:layout_constraintTop_toBottomOf="@id/tvTitleGive">
 
-
-                    <ImageView
-                        android:id="@+id/ivLostAnimal"
-                        style="@style/UserActionImage"
-                        app:srcCompat="@drawable/ic_vk" />
-
                     <TextView
                         android:id="@+id/tvLostAnimal"
                         style="@style/UserActionText"
                         android:text="@string/lost"
-                        app:layout_constraintBottom_toBottomOf="@id/ivLostAnimal"
-                        app:layout_constraintStart_toEndOf="@id/ivLostAnimal"
-                        app:layout_constraintTop_toTopOf="@id/ivLostAnimal" />
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent" />
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -157,19 +149,14 @@
                     android:focusable="true"
                     app:layout_constraintTop_toBottomOf="@id/clLostAnimal">
 
-
-                    <ImageView
-                        android:id="@+id/ivFoundAnimal"
-                        style="@style/UserActionImage"
-                        app:srcCompat="@drawable/ic_vk" />
-
                     <TextView
                         android:id="@+id/tvFoundAnimal"
                         style="@style/UserActionText"
                         android:text="@string/found_take_home"
-                        app:layout_constraintBottom_toBottomOf="@id/ivFoundAnimal"
-                        app:layout_constraintStart_toEndOf="@id/ivFoundAnimal"
-                        app:layout_constraintTop_toTopOf="@id/ivFoundAnimal" />
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent" />
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -182,19 +169,14 @@
                     android:focusable="true"
                     app:layout_constraintTop_toBottomOf="@id/clFoundAnimal">
 
-
-                    <ImageView
-                        android:id="@+id/ivSeemsHomeAnimal"
-                        style="@style/UserActionImage"
-                        app:srcCompat="@drawable/ic_vk" />
-
                     <TextView
                         android:id="@+id/tvSeemsHomeAnimal"
                         style="@style/UserActionText"
                         android:text="@string/seems_home"
-                        app:layout_constraintBottom_toBottomOf="@id/ivSeemsHomeAnimal"
-                        app:layout_constraintStart_toEndOf="@id/ivSeemsHomeAnimal"
-                        app:layout_constraintTop_toTopOf="@id/ivSeemsHomeAnimal" />
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent" />
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -234,19 +216,14 @@
                     android:focusable="true"
                     app:layout_constraintTop_toBottomOf="@id/tvTitleRead">
 
-
-                    <ImageView
-                        android:id="@+id/ivReadLostAnimal"
-                        style="@style/UserActionImage"
-                        app:srcCompat="@drawable/ic_vk" />
-
                     <TextView
                         android:id="@+id/tvReadLostAnimal"
                         style="@style/UserActionText"
                         android:text="@string/losties"
-                        app:layout_constraintBottom_toBottomOf="@id/ivReadLostAnimal"
-                        app:layout_constraintStart_toEndOf="@id/ivReadLostAnimal"
-                        app:layout_constraintTop_toTopOf="@id/ivReadLostAnimal" />
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent" />
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -260,19 +237,14 @@
                     android:focusable="true"
                     app:layout_constraintTop_toBottomOf="@id/clReadLostAnimal">
 
-
-                    <ImageView
-                        android:id="@+id/ivReadFoundAnimal"
-                        style="@style/UserActionImage"
-                        app:srcCompat="@drawable/ic_vk" />
-
                     <TextView
                         android:id="@+id/tvReadFoundAnimal"
                         style="@style/UserActionText"
                         android:text="@string/found_animals"
-                        app:layout_constraintBottom_toBottomOf="@id/ivReadFoundAnimal"
-                        app:layout_constraintStart_toEndOf="@id/ivReadFoundAnimal"
-                        app:layout_constraintTop_toTopOf="@id/ivReadFoundAnimal" />
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent" />
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -286,18 +258,14 @@
                     app:layout_constraintTop_toBottomOf="@id/clReadFoundAnimal">
 
 
-                    <ImageView
-                        android:id="@+id/ivReadSeemsHomeAnimal"
-                        style="@style/UserActionImage"
-                        app:srcCompat="@drawable/ic_vk" />
-
                     <TextView
                         android:id="@+id/tvReadSeemsHomeAnimal"
                         style="@style/UserActionText"
                         android:text="@string/seems_home"
-                        app:layout_constraintBottom_toBottomOf="@id/ivReadSeemsHomeAnimal"
-                        app:layout_constraintStart_toEndOf="@id/ivReadSeemsHomeAnimal"
-                        app:layout_constraintTop_toTopOf="@id/ivReadSeemsHomeAnimal" />
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent" />
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
 

@@ -192,4 +192,24 @@
         <item name="android:textSize">@dimen/text14</item>
     </style>
 
+    <style name="ShowPublicationTextView">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginStart">@dimen/space16</item>
+        <item name="android:textColor">@color/colorBlackText</item>
+        <item name="android:textSize">@dimen/text14</item>
+        <item name="android:layout_gravity">center_vertical</item>
+    </style>
+
+    <style name="ShowPublicationLayout">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">@dimen/space70</item>
+        <item name="android:layout_marginStart">@dimen/space16</item>
+        <item name="android:layout_marginTop">@dimen/space16</item>
+        <item name="android:layout_marginEnd">@dimen/space16</item>
+        <item name="android:background">@drawable/backgr_white_with_gray_border</item>
+    </style>
+
+
+
 </resources>

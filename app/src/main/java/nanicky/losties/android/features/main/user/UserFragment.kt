@@ -9,7 +9,7 @@ import androidx.fragment.app.Fragment
 import kotlinx.android.synthetic.main.fragment_user.*
 import nanicky.losties.android.R
 import nanicky.losties.android.features.publishad.PublishAdAnimalActivity
-import nanicky.losties.losties.enums.PublicationTypes
+import nanicky.losties.android.features.enums.PublicationTypes
 
 class UserFragment : Fragment() {
 

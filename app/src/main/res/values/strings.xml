@@ -39,4 +39,7 @@
     <string name="user_name">Как к вам обращаться</string>
     <string name="load_photo">Загрузить фото</string>
     <string name="error_check_inet_connection">Проверте наличие интернет соединения</string>
+    <string name="seen_at_street">Бродит по улицам</string>
+    <string name="taken_home">Взят домой</string>
+    <string name="lostie">Потеряшка</string>
 </resources>
