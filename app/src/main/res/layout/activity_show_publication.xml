@@ -163,7 +163,7 @@
                 <TextView
                     android:id="@+id/tvPhone0"
                     android:text="89287767654"
-                    android:layout_marginTop="@dimen/space10"
+                    android:layout_gravity="center"
                     style="@style/ShowPublicationTextView" />
 
                 <TextView
@@ -171,6 +171,7 @@
                     android:id="@+id/tvPhone1"
                     android:text="89287767654"
                     android:layout_marginTop="@dimen/space20"
+                    android:layout_gravity="center"
                     style="@style/ShowPublicationTextView" />
 
                 <TextView
@@ -178,6 +179,7 @@
                     android:id="@+id/tvPhone2"
                     android:text="89287767654"
                     android:layout_marginTop="@dimen/space20"
+                    android:layout_gravity="center"
                     style="@style/ShowPublicationTextView" />
             </LinearLayout>
         </LinearLayout>

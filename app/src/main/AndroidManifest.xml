@@ -36,7 +36,9 @@
 
         <activity
             android:name=".features.search.SearchActivity"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="portrait"
+            android:exported="true"/>
+
         <activity
             android:name=".features.main.MainActivity"
             android:screenOrientation="portrait">
@@ -46,15 +48,17 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
         <activity
             android:name=".features.publishad.PublishAdAnimalActivity"
-            android:screenOrientation="portrait">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
+            android:screenOrientation="portrait"
+            android:exported="true"/>
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
+        <activity
+            android:name=".features.showpublication.ShowPublicationActivity"
+            android:screenOrientation="portrait"
+            android:exported="true"/>
+
     </application>
 
 </manifest>

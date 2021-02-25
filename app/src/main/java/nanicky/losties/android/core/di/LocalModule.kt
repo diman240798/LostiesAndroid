@@ -42,7 +42,7 @@ fun localModule() = module {
     }
 
     single {
-        PublishAdAnimalRepository(get(named(DEFAULT_RETROFIT_CLIENT)))
+        PublishAdAnimalRepository(get(named(DEFAULT_RETROFIT_CLIENT)), get(named(ANIMAL_RECOGNIZER_RETROFIT_CLIENT)))
     }
 
 }

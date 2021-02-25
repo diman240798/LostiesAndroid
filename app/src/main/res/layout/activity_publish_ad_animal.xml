@@ -35,9 +35,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintBottom_toBottomOf="@id/vpPhotos"
-            android:layout_marginBottom="8dp"
-
-            />
+            android:layout_marginBottom="8dp" />
 
         <Button
             android:id="@+id/ivLoadPhoto"
@@ -77,6 +75,16 @@
         </com.google.android.material.textfield.TextInputLayout>
 
 
+        <ProgressBar
+            android:visibility="gone"
+            android:id="@+id/pbType"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/space20"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tilAnimalName" />
+
         <FrameLayout
             android:id="@+id/clTypeRoot"
             android:layout_width="match_parent"
@@ -85,7 +93,7 @@
             android:layout_marginTop="@dimen/space16"
             android:layout_marginEnd="@dimen/space16"
             android:background="@drawable/backgr_white_with_gray_border"
-            app:layout_constraintTop_toBottomOf="@id/tilAnimalName">
+            app:layout_constraintTop_toBottomOf="@id/pbType">
 
             <ImageView
                 android:id="@+id/ivType"

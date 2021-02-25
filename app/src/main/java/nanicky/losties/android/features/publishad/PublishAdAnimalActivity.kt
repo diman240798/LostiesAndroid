@@ -6,6 +6,7 @@ import android.view.View
 import android.widget.AdapterView
 import android.widget.EditText
 import androidx.core.view.isVisible
+import androidx.lifecycle.Observer
 import com.aminography.choosephotohelper.ChoosePhotoHelper
 import com.aminography.choosephotohelper.callback.ChoosePhotoCallback
 import com.xwray.groupie.GroupAdapter
@@ -23,6 +24,8 @@ import nanicky.losties.android.features.common.requests.AddAnimalRequest
 import nanicky.losties.android.features.entity.GeoAddress
 import nanicky.losties.android.core.data.models.Animal
 import nanicky.losties.android.core.data.models.UserData
+import nanicky.losties.android.core.extensions.gone
+import nanicky.losties.android.core.extensions.visible
 import nanicky.losties.android.features.enums.PublicationTypes.*
 import nanicky.losties.android.features.enums.toPublicationType
 import nanicky.losties.losties.util.AnimalType
@@ -200,6 +203,14 @@ class PublishAdAnimalActivity : BaseActivity() {
 
             override fun onChoose(photo: String?) {
                 photo?.let {
+                    if (photoPaths.isEmpty()) {
+                        pbType.visible()
+                        clTypeRoot.gone()
+                        viewmodel.requestAnimalTypeByPhoto(File(photo)) {
+                            pbType.gone()
+                            clTypeRoot.visible()
+                        }
+                    }
                     photoPaths.add(photo)
                     adapter.add(ImageItem(photo))
                 }
@@ -260,7 +271,7 @@ class PublishAdAnimalActivity : BaseActivity() {
     }
 
     private fun initTypeSpinner() {
-        val autoItems = listOf<TextImageAnimalType>(
+        val items = listOf<TextImageAnimalType>(
             TextImageAnimalType(l.tr(R.string.cat), R.drawable.ic_cat_mail, AnimalType.CAT),
             TextImageAnimalType(l.tr(R.string.catty), R.drawable.ic_cat_female, AnimalType.CATTY),
             TextImageAnimalType(l.tr(R.string.dog), R.drawable.ic_dog_mail, AnimalType.DOG),
@@ -268,7 +279,7 @@ class PublishAdAnimalActivity : BaseActivity() {
             TextImageAnimalType(l.tr(R.string.other), R.drawable.ic_other, AnimalType.OTHER)
         )
 
-        val adapter = TextImageAdapter(this, autoItems)
+        val adapter = TextImageAdapter(this, items)
         spinnerType.adapter = adapter
         spinnerType.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
             override fun onNothingSelected(parent: AdapterView<*>?) {
@@ -281,7 +292,7 @@ class PublishAdAnimalActivity : BaseActivity() {
                 position: Int,
                 id: Long
             ) {
-                val imageId = autoItems[position].image
+                val imageId = items[position].image
                 ivType.setImageResource(imageId)
             }
         }
@@ -297,6 +308,11 @@ class PublishAdAnimalActivity : BaseActivity() {
                 clTypeRoot.setBackgroundResource(R.drawable.backgr_white_with_gray_border)
             }
         }
+
+        viewmodel.animalType.observe(this, Observer { animalType ->
+            val index = items.indexOfFirst { it.animalType == animalType }
+            spinnerType.setSelection(index, true)
+        })
     }
 
     private fun setUpEmail() {
