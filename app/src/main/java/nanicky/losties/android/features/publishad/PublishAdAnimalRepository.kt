@@ -30,7 +30,7 @@ class PublishAdAnimalRepository(
     suspend fun requestAnimalTypeByPhoto(imageFile: File): String {
         val fBody: RequestBody = MultipartBody.Builder()
             .setType(MultipartBody.FORM)
-            .addFormDataPart("imagefile", imageFile.name, imageFile.asRequestBody("image/*".toMediaTypeOrNull()))
+            .addFormDataPart("file", imageFile.name, imageFile.asRequestBody("image/*".toMediaTypeOrNull()))
             .build()
 
         return apiAnimalRecognizer.requestAnimalTypeByPhoto(fBody)

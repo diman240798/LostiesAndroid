@@ -7,6 +7,7 @@ import nanicky.losties.android.core.data.local.SettingsRepository
 import nanicky.losties.android.core.data.local.UserRepository
 import nanicky.losties.android.core.data.remote.Api
 import nanicky.losties.android.features.publishad.PublishAdAnimalRepository
+import nanicky.losties.android.features.rateanimals.RateAnimalRepository
 import org.koin.core.qualifier.named
 import org.koin.dsl.module
 
@@ -43,6 +44,10 @@ fun localModule() = module {
 
     single {
         PublishAdAnimalRepository(get(named(DEFAULT_RETROFIT_CLIENT)), get(named(ANIMAL_RECOGNIZER_RETROFIT_CLIENT)))
+    }
+
+    single {
+        RateAnimalRepository(get(named(DEFAULT_RETROFIT_CLIENT)), get(named(ANIMAL_RECOGNIZER_RETROFIT_CLIENT)))
     }
 
 }

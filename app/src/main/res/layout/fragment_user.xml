@@ -132,10 +132,10 @@
                         android:id="@+id/tvLostAnimal"
                         style="@style/UserActionText"
                         android:text="@string/lost"
+                        app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent"
-                        app:layout_constraintBottom_toBottomOf="parent" />
+                        app:layout_constraintTop_toTopOf="parent" />
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -153,10 +153,10 @@
                         android:id="@+id/tvFoundAnimal"
                         style="@style/UserActionText"
                         android:text="@string/found_take_home"
+                        app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent"
-                        app:layout_constraintBottom_toBottomOf="parent" />
+                        app:layout_constraintTop_toTopOf="parent" />
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -173,10 +173,10 @@
                         android:id="@+id/tvSeemsHomeAnimal"
                         style="@style/UserActionText"
                         android:text="@string/seems_home"
+                        app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent"
-                        app:layout_constraintBottom_toBottomOf="parent" />
+                        app:layout_constraintTop_toTopOf="parent" />
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -220,10 +220,10 @@
                         android:id="@+id/tvReadLostAnimal"
                         style="@style/UserActionText"
                         android:text="@string/losties"
+                        app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent"
-                        app:layout_constraintBottom_toBottomOf="parent" />
+                        app:layout_constraintTop_toTopOf="parent" />
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -241,10 +241,10 @@
                         android:id="@+id/tvReadFoundAnimal"
                         style="@style/UserActionText"
                         android:text="@string/found_animals"
+                        app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent"
-                        app:layout_constraintBottom_toBottomOf="parent" />
+                        app:layout_constraintTop_toTopOf="parent" />
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -262,10 +262,10 @@
                         android:id="@+id/tvReadSeemsHomeAnimal"
                         style="@style/UserActionText"
                         android:text="@string/seems_home"
+                        app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent"
-                        app:layout_constraintBottom_toBottomOf="parent" />
+                        app:layout_constraintTop_toTopOf="parent" />
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -276,9 +276,97 @@
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
+            <!--WATCH ANIMALS-->
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/clRootWatchAnimals"
+                style="@style/registerParentRoot"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/space32"
+                android:clickable="true"
+                android:focusable="true"
+                android:foreground="@null"
+                app:layout_constraintTop_toBottomOf="@id/clRootReadPublication"
+                app:layout_constraintTop_toTopOf="@null">
+
+                <TextView
+                    android:id="@+id/tvWatch"
+                    style="@style/UserActionTitle"
+                    android:text="@string/watch" />
+
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/clWatchAnimals"
+                    style="@style/registerParentRoot"
+                    android:layout_height="@dimen/space55"
+                    android:layout_marginTop="@dimen/space16"
+                    android:clickable="true"
+                    android:focusable="true"
+                    app:layout_constraintTop_toBottomOf="@id/tvWatch">
+
+                    <TextView
+                        android:id="@+id/tvWatchAnimals"
+                        style="@style/UserActionText"
+                        android:text="@string/watch_animals"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/clWatchCats"
+                    style="@style/registerParentRoot"
+                    android:layout_height="@dimen/space55"
+                    android:layout_marginTop="@dimen/space16"
+                    android:clickable="true"
+                    android:focusable="true"
+                    app:layout_constraintTop_toBottomOf="@id/clWatchAnimals">
+
+                    <TextView
+                        android:id="@+id/tvWatchCats"
+                        style="@style/UserActionText"
+                        android:text="@string/watch_cats"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/clWatchDogs"
+                    style="@style/registerParentRoot"
+                    android:layout_height="@dimen/space55"
+                    android:layout_marginTop="@dimen/space16"
+                    android:clickable="true"
+                    android:focusable="true"
+                    app:layout_constraintTop_toBottomOf="@id/clWatchCats">
+
+
+                    <TextView
+                        android:id="@+id/tvWatchDogs"
+                        style="@style/UserActionText"
+                        android:text="@string/watch_dogs"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/space12"
+                    app:layout_constraintTop_toBottomOf="@id/clWatchDogs" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
         </androidx.constraintlayout.widget.ConstraintLayout>
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
 
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.core.widget.NestedScrollView>

@@ -5,4 +5,4 @@ enum class PublicationTypes {
 }
 
 fun String.toPublicationType()
-        = PublicationTypes.values().first { it.name ==  this}
+        = PublicationTypes.values().first { it.name ==  this }

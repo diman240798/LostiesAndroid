@@ -36,4 +36,8 @@
     <string name="error_check_inet_connection">Проверте наличие интернет соединения</string>
     <string name="seen_at_street">Бродит по улицам</string>
     <string name="lostie">Потеряшка</string>
+    <string name="next">Дальше</string>
+    <string name="watch">Просмотреть</string>
+    <string name="watch_animals">Лайкать животных</string>
+    <string name="watch_cats">Лайкать котов</string>
 </resources>

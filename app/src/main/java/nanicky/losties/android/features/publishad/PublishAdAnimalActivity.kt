@@ -313,6 +313,9 @@ class PublishAdAnimalActivity : BaseActivity() {
             val index = items.indexOfFirst { it.animalType == animalType }
             spinnerType.setSelection(index, true)
         })
+
+        spinnerType.setSelection(adapter.items.size - 1)
+
     }
 
     private fun setUpEmail() {

@@ -42,4 +42,9 @@
     <string name="seen_at_street">Бродит по улицам</string>
     <string name="taken_home">Взят домой</string>
     <string name="lostie">Потеряшка</string>
+    <string name="next">Дальше</string>
+    <string name="watch">Просмотреть</string>
+    <string name="watch_animals">Лайкать животных</string>
+    <string name="watch_cats">Лайкать котов</string>
+    <string name="watch_dogs">Лайкать собак</string>
 </resources>

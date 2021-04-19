@@ -210,6 +210,15 @@
         <item name="android:background">@drawable/backgr_white_with_gray_border</item>
     </style>
 
+    <style name="TextViewlikesCount">
+        <item name="android:gravity">center</item>
+        <item name="android:textSize">@dimen/text22</item>
+        <item name="android:fontFamily">@font/ubuntu_b</item>
+        <item name="android:textColor">@color/colorWhite</item>
+        <item name="android:layout_width">@dimen/space60</item>
+        <item name="android:layout_height">@dimen/space60</item>
+        <item name="android:layout_margin">@dimen/space16</item>
+    </style>
 
 
 </resources>

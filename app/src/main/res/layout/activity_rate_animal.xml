@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:animateLayoutChanges="true"
+        tools:context=".features.rateanimals.RateAnimalActivity">
+
+
+        <ImageView
+            android:id="@+id/ivAnimal"
+            android:layout_width="@dimen/space0"
+            android:layout_height="400dp"
+            android:layout_margin="@dimen/space16"
+            android:scaleType="centerInside"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/cat_big" />
+
+        <ProgressBar
+            android:id="@+id/pbAnimal"
+            android:layout_width="@dimen/space60"
+            android:layout_height="@dimen/space60"
+            app:layout_constraintBottom_toBottomOf="@id/ivAnimal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@id/ivAnimal" />
+
+        <ImageView
+            android:id="@+id/btDislike"
+            android:layout_width="@dimen/space60"
+            android:layout_height="@dimen/space60"
+            android:layout_margin="@dimen/space16"
+            android:onClick="onDislikeClicked"
+            app:layout_constraintEnd_toStartOf="@id/btLike"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/ivAnimal"
+            app:srcCompat="@drawable/dislike" />
+
+        <View
+            android:id="@+id/vLikesMiddle"
+            android:layout_width="@dimen/space60"
+            android:layout_height="@dimen/space60"
+            android:layout_margin="@dimen/space16"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/ivAnimal" />
+
+
+        <ImageView
+            android:id="@+id/btLike"
+            android:layout_width="@dimen/space60"
+            android:layout_height="@dimen/space60"
+            android:layout_margin="@dimen/space16"
+            android:onClick="onLikeClicked"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/btDislike"
+            app:layout_constraintTop_toBottomOf="@+id/ivAnimal"
+            app:srcCompat="@drawable/like" />
+
+        <Button
+            android:id="@+id/btNext"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/space16"
+            android:onClick="onNext"
+            android:text="@string/next"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/vLikesMiddle" />
+
+
+        <TextView
+            android:id="@+id/tvDisliked"
+            style="@style/TextViewlikesCount"
+            android:background="@drawable/dislike_background"
+            app:layout_constraintEnd_toStartOf="@id/tvLiked"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/btNext"
+            android:visibility="gone"
+            tools:text="15" />
+
+
+        <TextView
+            android:id="@+id/tvLiked"
+            style="@style/TextViewlikesCount"
+            android:background="@drawable/like_background"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/tvDisliked"
+            app:layout_constraintTop_toBottomOf="@+id/btNext"
+            android:visibility="gone"
+            tools:text="15" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</ScrollView>
