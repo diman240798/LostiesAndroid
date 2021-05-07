@@ -1,7 +1,7 @@
 package nanicky.losties.android.features.enums
 
 enum class PublicationTypes {
-    LOST, SEEN, FOUND
+    LOST, SEEN, TAKEN
 }
 
 fun String.toPublicationType()

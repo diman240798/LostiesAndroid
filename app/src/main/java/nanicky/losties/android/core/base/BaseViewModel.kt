@@ -46,8 +46,8 @@ abstract class BaseViewModel<S, E> : ViewModel() {
     }
 
     protected fun ioWithCallbacks(
-        onStart: () -> Unit,
-        onFinish: () -> Unit,
+        onStart: () -> Unit = {},
+        onFinish: () -> Unit = {},
         block: suspend () -> Unit): Job {
         return viewModelScope.launch {
             try {

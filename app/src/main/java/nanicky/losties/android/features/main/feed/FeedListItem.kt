@@ -13,9 +13,6 @@ class FeedListItem : Item() {
 
     override fun bind(viewHolder: GroupieViewHolder, position: Int) {
         val adapter = GroupAdapter<GroupieViewHolder>()
-        adapter.add(FeedItem())
-        adapter.add(FeedItem())
-        adapter.add(FeedItem())
         viewHolder.rcFeedList.adapter = adapter
     }
 

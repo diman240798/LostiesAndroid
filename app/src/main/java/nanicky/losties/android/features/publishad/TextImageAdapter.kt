@@ -46,7 +46,7 @@ class TextImageAdapter(
 
         val item = getMyItem(position)
 
-        view.findViewById<ImageView>(R.id.image).setImageResource(item.image)
+        view.findViewById<ImageView>(R.id.image).setImageResource(item.animalType.image)
         view.findViewById<TextView>(R.id.text).text = item.text
 
 
@@ -54,7 +54,7 @@ class TextImageAdapter(
     }
 
     fun getItemImage(position: Int): Int {
-        return getMyItem(position).image
+        return getMyItem(position).animalType.image
     }
 
     fun getMyItem(position: Int): TextImageAnimalType {

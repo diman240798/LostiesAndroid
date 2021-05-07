@@ -21,7 +21,7 @@ import nanicky.losties.android.core.utils.GeoResult
 import nanicky.losties.android.core.utils.checkPermissionsOrgetLocation
 import nanicky.losties.android.core.utils.getCompleteAddressString
 import nanicky.losties.android.features.common.requests.AddAnimalRequest
-import nanicky.losties.android.features.entity.GeoAddress
+import nanicky.losties.android.core.data.models.GeoAddress
 import nanicky.losties.android.core.data.models.Animal
 import nanicky.losties.android.core.data.models.UserData
 import nanicky.losties.android.core.extensions.gone
@@ -59,7 +59,7 @@ class PublishAdAnimalActivity : BaseActivity() {
                 LOST -> {
                     tvTitle.text = l.tr(R.string.lost_animal)
                 }
-                FOUND -> {
+                TAKEN -> {
                     tvTitle.text = l.tr(R.string.found_take_home)
                 }
                 SEEN -> {
@@ -168,7 +168,12 @@ class PublishAdAnimalActivity : BaseActivity() {
                     email,
                     netWorks.joinToString()
                 ),
-                GeoAddress(UUID.randomUUID(), longtitude, latitude, address),
+                GeoAddress(
+                    UUID.randomUUID(),
+                    longtitude,
+                    latitude,
+                    address
+                ),
                 photos = photos
             )
 
@@ -177,7 +182,7 @@ class PublishAdAnimalActivity : BaseActivity() {
                     LOST -> {
                         viewmodel.addLostAnimal(addAnimalRequest)
                     }
-                    FOUND -> {
+                    TAKEN -> {
                         viewmodel.addFoundAnimal(addAnimalRequest)
                     }
                     SEEN -> {
@@ -185,10 +190,7 @@ class PublishAdAnimalActivity : BaseActivity() {
                     }
 
                 }
-            } else {
-                viewmodel.addLostAnimal(addAnimalRequest)
             }
-
         }
     }
 
@@ -272,11 +274,11 @@ class PublishAdAnimalActivity : BaseActivity() {
 
     private fun initTypeSpinner() {
         val items = listOf<TextImageAnimalType>(
-            TextImageAnimalType(l.tr(R.string.cat), R.drawable.ic_cat_mail, AnimalType.CAT),
-            TextImageAnimalType(l.tr(R.string.catty), R.drawable.ic_cat_female, AnimalType.CATTY),
-            TextImageAnimalType(l.tr(R.string.dog), R.drawable.ic_dog_mail, AnimalType.DOG),
-            TextImageAnimalType(l.tr(R.string.doggy), R.drawable.ic_dog_female, AnimalType.DOGGY),
-            TextImageAnimalType(l.tr(R.string.other), R.drawable.ic_other, AnimalType.OTHER)
+            TextImageAnimalType(l.tr(R.string.cat), AnimalType.CAT),
+            TextImageAnimalType(l.tr(R.string.catty), AnimalType.CATTY),
+            TextImageAnimalType(l.tr(R.string.dog), AnimalType.DOG),
+            TextImageAnimalType(l.tr(R.string.doggy), AnimalType.DOGGY),
+            TextImageAnimalType(l.tr(R.string.other), AnimalType.OTHER)
         )
 
         val adapter = TextImageAdapter(this, items)
@@ -292,7 +294,7 @@ class PublishAdAnimalActivity : BaseActivity() {
                 position: Int,
                 id: Long
             ) {
-                val imageId = items[position].image
+                val imageId = items[position].animalType.image
                 ivType.setImageResource(imageId)
             }
         }

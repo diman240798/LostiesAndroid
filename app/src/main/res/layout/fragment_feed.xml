@@ -18,26 +18,12 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <ImageView
-        android:id="@+id/ivOpenFilters"
-        android:layout_width="40dp"
-        android:layout_height="40dp"
-        android:src="@drawable/filters"
-
-
-        android:textColor="@color/colorBlueText"
-        android:layout_marginEnd="@dimen/space16"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@id/tvTitle"
-        app:layout_constraintBottom_toBottomOf="@id/tvTitle"
-        />
-
     <androidx.viewpager2.widget.ViewPager2
         android:id="@+id/vpFeed"
         android:layout_width="@dimen/space0"
         android:layout_height="@dimen/space0"
         android:layout_marginTop="@dimen/space16"
-        app:layout_constraintTop_toBottomOf="@id/ivOpenFilters"
+        app:layout_constraintTop_toBottomOf="@id/tvTitle"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintBottom_toBottomOf="parent" />

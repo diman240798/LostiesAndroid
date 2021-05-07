@@ -1,83 +1,78 @@
 package nanicky.losties.android.features.showpublication
 
-import android.content.Intent
 import android.os.Bundle
-import com.aminography.choosephotohelper.ChoosePhotoHelper
-import com.aminography.choosephotohelper.callback.ChoosePhotoCallback
+import com.bumptech.glide.Glide
 import com.xwray.groupie.GroupAdapter
 import com.xwray.groupie.kotlinandroidextensions.GroupieViewHolder
+import kotlinx.android.synthetic.main.activity_publish_ad_animal.*
 import kotlinx.android.synthetic.main.activity_show_publication.*
+import kotlinx.android.synthetic.main.activity_show_publication.indicator
+import kotlinx.android.synthetic.main.activity_show_publication.tvTitle
+import kotlinx.android.synthetic.main.activity_show_publication.vpPhotos
 import nanicky.losties.android.R
 import nanicky.losties.android.core.base.BaseActivity
+import nanicky.losties.android.features.enums.PublicationTypes
+import nanicky.losties.android.features.enums.toPublicationType
 import nanicky.losties.android.features.publishad.ImageItem
+import nanicky.losties.android.features.publishad.PublishAdAnimalActivity
+import nanicky.losties.android.features.watchad.item.getImageUrl
+import org.koin.android.ext.android.inject
 
 class ShowPublicationActivity : BaseActivity() {
 
-    private lateinit var choosePhotoHelper: ChoosePhotoHelper
+    companion object {
+        const val ANIMAL_TYPE_EXTRA = "ANIMAL_TYPE_EXTRA"
+    }
+
+    private val showPublicationObject: ShowPublicationObject by inject()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_show_publication)
 
-        setUpPhotoLoad()
 
+        val animal = showPublicationObject.animal
 
-
-        /*val publicationType = animal.type
-
-        publicationType?.let {
-            when (it.toPublicationType()) {
+        val animalData = animal.animal!!
+        val publicationType = intent.getStringExtra(ANIMAL_TYPE_EXTRA).toPublicationType()
+        publicationType.let {
+            when (it) {
                 PublicationTypes.LOST -> {
                     tvTitle.text = l.tr(R.string.lostie)
                 }
-                PublicationTypes.FOUND -> {
+                PublicationTypes.TAKEN -> {
                     tvTitle.text = l.tr(R.string.taken_home)
                 }
                 PublicationTypes.SEEN -> {
                     tvTitle.text = l.tr(R.string.seen_at_street)
                 }
             }
-        }*/
+        }
 
-        
-    }
 
-    private fun setUpPhotoLoad() {
         val adapter = GroupAdapter<GroupieViewHolder>()
         vpPhotos.adapter = adapter
 
         indicator.setViewPager(vpPhotos)
         adapter.registerAdapterDataObserver(indicator.adapterDataObserver)
 
-        class PhotoCallback : ChoosePhotoCallback<String> {
-
-            override fun onChoose(photo: String?) {
-                photo?.let {
-                    adapter.add(ImageItem(photo))
-                }
-            }
+        animalData.photoIds?.forEach {
+            val imageUrl = getImageUrl(it, publicationType)
+            adapter.add(ImageItem(imageUrl))
         }
 
-        choosePhotoHelper = ChoosePhotoHelper.with(this)
-            .asFilePath()
-            .build(PhotoCallback())
+        tvAnimalName.text = animalData.name
+        val type = animalData.type!!
+        tvAnimalType.text = type.rusName
+        Glide.with(this).load(type.image).into(ivAnimalType)
+        tvAnimalBreed.text = animalData.breed
+        tvUserName.text = animal.user!!.name
+        tvAddress.text = animal.geoAddress!!.address
+        tvPhone0.text = animal.user.numbers
+        tvMail.text = animal.user.emails
+        tvSocial0.text = animal.user.networksUrls
 
-        lAnimalName.setOnClickListener {
-            choosePhotoHelper.showChooser()
-        }
-    }
 
-    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-        super.onActivityResult(requestCode, resultCode, data)
-        choosePhotoHelper.onActivityResult(requestCode, resultCode, data)
-    }
 
-    override fun onRequestPermissionsResult(
-        requestCode: Int,
-        permissions: Array<String>,
-        grantResults: IntArray
-    ) {
-        super.onRequestPermissionsResult(requestCode, permissions, grantResults)
-        choosePhotoHelper.onRequestPermissionsResult(requestCode, permissions, grantResults)
     }
 }

@@ -59,6 +59,10 @@
             android:name=".features.showpublication.ShowPublicationActivity"
             android:exported="true"
             android:screenOrientation="portrait" />
+        <activity
+            android:name=".features.watchad.WatchAdActivity"
+            android:exported="true"
+            android:screenOrientation="portrait" />
     </application>
 
 </manifest>

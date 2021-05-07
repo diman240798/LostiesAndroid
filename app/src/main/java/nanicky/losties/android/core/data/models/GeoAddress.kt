@@ -1,4 +1,4 @@
-package nanicky.losties.android.features.entity
+package nanicky.losties.android.core.data.models
 
 import android.os.Parcelable
 import kotlinx.android.parcel.Parcelize

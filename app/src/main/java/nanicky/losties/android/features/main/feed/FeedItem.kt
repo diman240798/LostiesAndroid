@@ -5,7 +5,7 @@ import com.xwray.groupie.kotlinandroidextensions.Item
 import kotlinx.android.synthetic.main.pager_item_feed_filters.*
 import nanicky.losties.android.R
 
-class FeedFiltersItem(val setFirstScreen: () -> Unit) : Item() {
+class FeedItem(val setFirstScreen: () -> Unit) : Item() {
 
     override fun getLayout(): Int = R.layout.pager_item_feed_filters
 

@@ -2,7 +2,7 @@ package nanicky.losties.android.features.common.requests
 
 import nanicky.losties.android.core.data.models.Animal
 import nanicky.losties.android.core.data.models.UserData
-import nanicky.losties.android.features.entity.GeoAddress
+import nanicky.losties.android.core.data.models.GeoAddress
 
 class AddAnimalRequest(
     var animal: Animal?= null,

@@ -3,6 +3,7 @@ package nanicky.losties.android.core.base
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import nanicky.losties.android.core.data.local.*
+import nanicky.losties.android.core.data.local.UserRepository
 import nanicky.losties.android.core.extensions.provideProgressDialog
 import org.koin.android.ext.android.inject
 

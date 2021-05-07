@@ -9,6 +9,7 @@ import com.xwray.groupie.GroupAdapter
 import com.xwray.groupie.kotlinandroidextensions.GroupieViewHolder
 import kotlinx.android.synthetic.main.fragment_feed.*
 import nanicky.losties.android.R
+import org.koin.android.viewmodel.ext.android.viewModel
 
 class FeedFragment: Fragment() {
 
@@ -19,6 +20,8 @@ class FeedFragment: Fragment() {
 
         const val TAG = "FeedFragment"
     }
+
+    val viewModel: FeedFragmentViewModel by viewModel()
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -33,14 +36,7 @@ class FeedFragment: Fragment() {
 
         val adapter = GroupAdapter<GroupieViewHolder>()
         adapter.add(FeedListItem())
-
-        val setFirstScreen: () -> Unit = { vpFeed.setCurrentItem(0, true) }
-        adapter.add(FeedFiltersItem(setFirstScreen))
         vpFeed.adapter = adapter
-
-        ivOpenFilters.setOnClickListener {
-            vpFeed.setCurrentItem(1, true)
-        }
 
     }
 }

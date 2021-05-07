@@ -10,8 +10,8 @@ import kotlinx.android.synthetic.main.fragment_user.*
 import nanicky.losties.android.R
 import nanicky.losties.android.features.publishad.PublishAdAnimalActivity
 import nanicky.losties.android.features.enums.PublicationTypes
-import nanicky.losties.android.features.publishad.PublishAdAnimalActivity.Companion.ANIMAL_TYPE_EXTRA
 import nanicky.losties.android.features.rateanimals.RateAnimalActivity
+import nanicky.losties.android.features.watchad.WatchAdActivity
 import nanicky.losties.losties.util.AnimalType
 
 class UserFragment : Fragment() {
@@ -42,7 +42,7 @@ class UserFragment : Fragment() {
 
         clFoundAnimal.setOnClickListener {
             val intent = Intent(context, PublishAdAnimalActivity::class.java)
-            intent.putExtra(PublishAdAnimalActivity.ANIMAL_TYPE_EXTRA, PublicationTypes.FOUND.name)
+            intent.putExtra(PublishAdAnimalActivity.ANIMAL_TYPE_EXTRA, PublicationTypes.TAKEN.name)
             requireContext().startActivity(intent)
         }
 
@@ -67,6 +67,24 @@ class UserFragment : Fragment() {
         clWatchDogs.setOnClickListener {
             val intent = Intent(context, RateAnimalActivity::class.java)
             intent.putExtra(RateAnimalActivity.ANIMAL_TYPE_EXTRA, AnimalType.DOG.name)
+            requireContext().startActivity(intent)
+        }
+
+        clReadLostAnimal.setOnClickListener {
+            val intent = Intent(context, WatchAdActivity::class.java)
+            intent.putExtra(WatchAdActivity.ANIMAL_TYPE_EXTRA, PublicationTypes.LOST.name)
+            requireContext().startActivity(intent)
+        }
+
+        clReadSeemsHomeAnimal.setOnClickListener {
+            val intent = Intent(context, WatchAdActivity::class.java)
+            intent.putExtra(WatchAdActivity.ANIMAL_TYPE_EXTRA, PublicationTypes.SEEN.name)
+            requireContext().startActivity(intent)
+        }
+
+        clReadFoundAnimal.setOnClickListener {
+            val intent = Intent(context, WatchAdActivity::class.java)
+            intent.putExtra(WatchAdActivity.ANIMAL_TYPE_EXTRA, PublicationTypes.TAKEN.name)
             requireContext().startActivity(intent)
         }
     }

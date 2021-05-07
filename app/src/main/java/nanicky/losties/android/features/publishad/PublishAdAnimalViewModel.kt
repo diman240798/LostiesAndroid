@@ -3,12 +3,13 @@ package nanicky.losties.android.features.publishad
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import nanicky.losties.android.core.base.BaseViewModel
+import nanicky.losties.android.core.data.remote.AnimalRemoteCrudRepository
 import nanicky.losties.android.features.common.requests.AddAnimalRequest
 import nanicky.losties.losties.util.AnimalType
 import java.io.File
 
 class PublishAdAnimalViewModel(
-    private val repo: PublishAdAnimalRepository
+    private val repo: AnimalRemoteCrudRepository
 ) : BaseViewModel<String, String>() {
 
     private val _animalType: MutableLiveData<AnimalType> = MutableLiveData(AnimalType.CAT)

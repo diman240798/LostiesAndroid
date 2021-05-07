@@ -19,6 +19,7 @@ import javax.net.ssl.HostnameVerifier
 
 const val ENTRY_POINT = "http://192.168.1.95:8080"
 const val ANIMAL_RECOGNIZER_ENTRY_POINT = "http://192.168.1.95:5000"
+const val PHOTO_URL_POINT = "http://192.168.1.95:8080/photo/get?id=%s&type=%s"
 
 const val DEFAULT_HTTP_CLIENT = "default_http_client"
 const val ANIMAL_RECOGNIZER_HTTP_CLIENT = "animal_recognizer_http_client"
@@ -62,9 +63,11 @@ fun remoteModule() = module {
     }
 
     single(named(ANIMAL_RECOGNIZER_RETROFIT_CLIENT)) {
-        createApi<ApiAnimalRecognizer>(get(named(ANIMAL_RECOGNIZER_HTTP_CLIENT)), baseUrl = ANIMAL_RECOGNIZER_ENTRY_POINT)
+        createApi<ApiAnimalRecognizer>(
+            get(named(ANIMAL_RECOGNIZER_HTTP_CLIENT)),
+            baseUrl = ANIMAL_RECOGNIZER_ENTRY_POINT
+        )
     }
-
 
 
 }
@@ -109,11 +112,11 @@ fun addLoggingInterceptorIfDebug(builder: OkHttpClient.Builder): OkHttpClient.Bu
 }
 
 
-
-
 inline fun <reified T> createApi(okHttpClient: OkHttpClient, baseUrl: String = ENTRY_POINT): T {
     val gsonBuilder = GsonBuilder()
-    gsonBuilder.setLenient()
+        .setLenient()
+        .setDateFormat("yyyy-MM-dd'T'HH:mm:ss")
+
     val retrofit = Retrofit.Builder()
         .baseUrl(baseUrl)
         .client(okHttpClient)
