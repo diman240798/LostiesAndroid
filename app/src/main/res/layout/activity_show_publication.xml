@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/colorWhite"
-    tools:context=".features.showpublication.ShowPublicationActivity">
+    tools:context=".features.watchpublication.WatchPublicationActivity">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -39,10 +39,22 @@
 
             />
 
+        <Button
+            android:id="@+id/btPublishOnSocailNetworks"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/space50"
+            android:layout_marginStart="@dimen/space16"
+            android:layout_marginEnd="@dimen/space16"
+            android:fontFamily="@font/ubuntu_r"
+            android:text="@string/publish_on_social_networks"
+            android:textAllCaps="false"
+            android:visibility="gone"
+            app:layout_constraintTop_toBottomOf="@+id/vpPhotos" />
+
         <LinearLayout
             android:id="@+id/lAnimalName"
-            app:layout_constraintTop_toBottomOf="@id/vpPhotos"
             style="@style/ShowPublicationLayout"
+            app:layout_constraintTop_toBottomOf="@id/btPublishOnSocailNetworks"
             tools:ignore="MissingConstraints">
 
             <ImageView
@@ -55,14 +67,14 @@
 
             <TextView
                 android:id="@+id/tvAnimalName"
-                android:text="Муся"
-                style="@style/ShowPublicationTextView" />
+                style="@style/ShowPublicationTextView"
+                android:text="Муся" />
         </LinearLayout>
 
         <LinearLayout
             android:id="@+id/lAnimalType"
-            app:layout_constraintTop_toBottomOf="@id/lAnimalName"
             style="@style/ShowPublicationLayout"
+            app:layout_constraintTop_toBottomOf="@id/lAnimalName"
             tools:ignore="MissingConstraints">
 
             <ImageView
@@ -75,14 +87,14 @@
 
             <TextView
                 android:id="@+id/tvAnimalType"
-                android:text="@string/catty"
-                style="@style/ShowPublicationTextView" />
+                style="@style/ShowPublicationTextView"
+                android:text="@string/catty" />
         </LinearLayout>
 
         <LinearLayout
             android:id="@+id/lAnimalBreed"
-            app:layout_constraintTop_toBottomOf="@id/lAnimalType"
             style="@style/ShowPublicationLayout"
+            app:layout_constraintTop_toBottomOf="@id/lAnimalType"
             tools:ignore="MissingConstraints">
 
             <ImageView
@@ -95,14 +107,14 @@
 
             <TextView
                 android:id="@+id/tvAnimalBreed"
-                android:text="Боксер"
-                style="@style/ShowPublicationTextView" />
+                style="@style/ShowPublicationTextView"
+                android:text="Боксер" />
         </LinearLayout>
 
         <LinearLayout
             android:id="@+id/lUserName"
-            app:layout_constraintTop_toBottomOf="@id/lAnimalBreed"
             style="@style/ShowPublicationLayout"
+            app:layout_constraintTop_toBottomOf="@id/lAnimalBreed"
             tools:ignore="MissingConstraints">
 
             <ImageView
@@ -115,17 +127,17 @@
 
             <TextView
                 android:id="@+id/tvUserName"
-                android:text="Наташа"
-                style="@style/ShowPublicationTextView" />
+                style="@style/ShowPublicationTextView"
+                android:text="Наташа" />
         </LinearLayout>
 
         <LinearLayout
             android:id="@+id/lAddress"
-            app:layout_constraintTop_toBottomOf="@id/lUserName"
             style="@style/ShowPublicationLayout"
+            app:layout_constraintTop_toBottomOf="@id/lUserName"
             tools:ignore="MissingConstraints">
 
-             <ImageView
+            <ImageView
                 android:id="@+id/ivAddress"
                 android:layout_width="@dimen/space50"
                 android:layout_height="@dimen/space50"
@@ -135,18 +147,18 @@
 
             <TextView
                 android:id="@+id/tvAddress"
-                android:text="1600 Amphitheatre Pkwy, Mountain View, CA 94043, USA"
-                style="@style/ShowPublicationTextView" />
+                style="@style/ShowPublicationTextView"
+                android:text="1600 Amphitheatre Pkwy, Mountain View, CA 94043, USA" />
         </LinearLayout>
 
         <LinearLayout
             android:id="@+id/lPhone"
-            app:layout_constraintTop_toBottomOf="@id/lAddress"
-            android:layout_height="wrap_content"
             style="@style/ShowPublicationLayout"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/lAddress"
             tools:ignore="MissingConstraints">
 
-             <ImageView
+            <ImageView
                 android:id="@+id/ivPhone"
                 android:layout_width="@dimen/space50"
                 android:layout_height="@dimen/space50"
@@ -162,34 +174,33 @@
 
                 <TextView
                     android:id="@+id/tvPhone0"
-                    android:text="89287767654"
+                    style="@style/ShowPublicationTextView"
                     android:layout_gravity="center"
-                    style="@style/ShowPublicationTextView" />
+                    android:text="89287767654" />
 
                 <TextView
-                    android:visibility="gone"
                     android:id="@+id/tvPhone1"
-                    android:text="89287767654"
-                    android:layout_marginTop="@dimen/space20"
+                    style="@style/ShowPublicationTextView"
                     android:layout_gravity="center"
-                    style="@style/ShowPublicationTextView" />
+                    android:layout_marginTop="@dimen/space20"
+                    android:text="89287767654"
+                    android:visibility="gone" />
 
                 <TextView
-                    android:visibility="gone"
                     android:id="@+id/tvPhone2"
-                    android:text="89287767654"
-                    android:layout_marginTop="@dimen/space20"
+                    style="@style/ShowPublicationTextView"
                     android:layout_gravity="center"
-                    style="@style/ShowPublicationTextView" />
+                    android:layout_marginTop="@dimen/space20"
+                    android:text="89287767654"
+                    android:visibility="gone" />
             </LinearLayout>
         </LinearLayout>
 
 
-
         <LinearLayout
             android:id="@+id/lMain"
-            app:layout_constraintTop_toBottomOf="@id/lPhone"
             style="@style/ShowPublicationLayout"
+            app:layout_constraintTop_toBottomOf="@id/lPhone"
             tools:ignore="MissingConstraints">
 
             <ImageView
@@ -202,15 +213,15 @@
 
             <TextView
                 android:id="@+id/tvMail"
-                android:text="diman@yandex.ru"
-                style="@style/ShowPublicationTextView" />
+                style="@style/ShowPublicationTextView"
+                android:text="diman@yandex.ru" />
         </LinearLayout>
 
         <LinearLayout
             android:id="@+id/lSocial"
-            app:layout_constraintTop_toBottomOf="@id/lMain"
-            android:layout_height="wrap_content"
             style="@style/ShowPublicationLayout"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/lMain"
             tools:ignore="MissingConstraints">
 
             <ImageView
@@ -229,23 +240,23 @@
 
                 <TextView
                     android:id="@+id/tvSocial0"
-                    android:text="https://vk.com/terminator"
+                    style="@style/ShowPublicationTextView"
                     android:layout_marginTop="@dimen/space10"
-                    style="@style/ShowPublicationTextView" />
+                    android:text="https://vk.com/terminator" />
 
                 <TextView
-                    android:visibility="gone"
                     android:id="@+id/tvSocial1"
-                    android:text="https://vk.com/terminator"
+                    style="@style/ShowPublicationTextView"
                     android:layout_marginTop="@dimen/space20"
-                    style="@style/ShowPublicationTextView" />
+                    android:text="https://vk.com/terminator"
+                    android:visibility="gone" />
 
                 <TextView
-                    android:visibility="gone"
                     android:id="@+id/tvSocial2"
-                    android:text="https://vk.com/terminator"
+                    style="@style/ShowPublicationTextView"
                     android:layout_marginTop="@dimen/space20"
-                    style="@style/ShowPublicationTextView" />
+                    android:text="https://vk.com/terminator"
+                    android:visibility="gone" />
             </LinearLayout>
         </LinearLayout>
 

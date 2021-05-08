@@ -13,4 +13,10 @@
         android:title="@string/profile"
         app:showAsAction="ifRoom" />
 
+    <item
+        android:id="@+id/item_actions"
+        android:icon="@drawable/ic_lock"
+        android:title="@string/profile"
+        app:showAsAction="ifRoom" />
+
 </menu>

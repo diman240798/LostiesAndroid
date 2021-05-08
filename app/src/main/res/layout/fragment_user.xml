@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -22,6 +22,7 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
+            android:id="@+id/tvUserNameBelowPhoto"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/space16"
@@ -45,7 +46,7 @@
             android:visibility="visible"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/ivPhotoUser" />
+            app:layout_constraintTop_toBottomOf="@id/tvUserNameBelowPhoto" />
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/clRootFacebook"
@@ -99,274 +100,15 @@
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="match_parent"
+        <include
+            android:layout_marginTop="@dimen/space32"
+            app:layout_constraintTop_toBottomOf="@id/clRootVk"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/space50"
-            app:layout_constraintTop_toBottomOf="@id/clRootVk">
-
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:id="@+id/clRootGivePublication"
-                style="@style/registerParentRoot"
-                android:layout_height="wrap_content"
-                android:clickable="true"
-                android:focusable="true"
-                android:foreground="@null">
-
-                <TextView
-                    android:id="@+id/tvTitleGive"
-                    style="@style/UserActionTitle"
-                    android:text="@string/publish" />
-
-
-                <androidx.constraintlayout.widget.ConstraintLayout
-                    android:id="@+id/clLostAnimal"
-                    style="@style/registerParentRoot"
-                    android:layout_height="@dimen/space55"
-                    android:layout_marginTop="@dimen/space16"
-                    android:clickable="true"
-                    android:focusable="true"
-                    app:layout_constraintTop_toBottomOf="@id/tvTitleGive">
-
-                    <TextView
-                        android:id="@+id/tvLostAnimal"
-                        style="@style/UserActionText"
-                        android:text="@string/lost"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent" />
-
-                </androidx.constraintlayout.widget.ConstraintLayout>
-
-
-                <androidx.constraintlayout.widget.ConstraintLayout
-                    android:id="@+id/clFoundAnimal"
-                    style="@style/registerParentRoot"
-                    android:layout_height="@dimen/space55"
-                    android:layout_marginTop="@dimen/space16"
-                    android:clickable="true"
-                    android:focusable="true"
-                    app:layout_constraintTop_toBottomOf="@id/clLostAnimal">
-
-                    <TextView
-                        android:id="@+id/tvFoundAnimal"
-                        style="@style/UserActionText"
-                        android:text="@string/found_take_home"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent" />
-
-                </androidx.constraintlayout.widget.ConstraintLayout>
-
-                <androidx.constraintlayout.widget.ConstraintLayout
-                    android:id="@+id/clSeemsHomeAnimal"
-                    style="@style/registerParentRoot"
-                    android:layout_height="@dimen/space55"
-                    android:layout_marginTop="@dimen/space16"
-                    android:clickable="true"
-                    android:focusable="true"
-                    app:layout_constraintTop_toBottomOf="@id/clFoundAnimal">
-
-                    <TextView
-                        android:id="@+id/tvSeemsHomeAnimal"
-                        style="@style/UserActionText"
-                        android:text="@string/seems_home"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent" />
-
-                </androidx.constraintlayout.widget.ConstraintLayout>
-
-                <View
-                    android:layout_width="match_parent"
-                    android:layout_height="@dimen/space12"
-                    app:layout_constraintTop_toBottomOf="@id/clSeemsHomeAnimal" />
-
-            </androidx.constraintlayout.widget.ConstraintLayout>
-
-
-            <!--READ PUBLICATIONS-->
-
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:id="@+id/clRootReadPublication"
-                style="@style/registerParentRoot"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/space32"
-                android:clickable="true"
-                android:focusable="true"
-                android:foreground="@null"
-                app:layout_constraintTop_toBottomOf="@id/clRootGivePublication"
-                app:layout_constraintTop_toTopOf="@null">
-
-                <TextView
-                    android:id="@+id/tvTitleRead"
-                    style="@style/UserActionTitle"
-                    android:text="@string/read" />
-
-
-                <androidx.constraintlayout.widget.ConstraintLayout
-                    android:id="@+id/clReadLostAnimal"
-                    style="@style/registerParentRoot"
-                    android:layout_height="@dimen/space55"
-                    android:layout_marginTop="@dimen/space16"
-                    android:clickable="true"
-                    android:focusable="true"
-                    app:layout_constraintTop_toBottomOf="@id/tvTitleRead">
-
-                    <TextView
-                        android:id="@+id/tvReadLostAnimal"
-                        style="@style/UserActionText"
-                        android:text="@string/losties"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent" />
-
-                </androidx.constraintlayout.widget.ConstraintLayout>
-
-
-                <androidx.constraintlayout.widget.ConstraintLayout
-                    android:id="@+id/clReadFoundAnimal"
-                    style="@style/registerParentRoot"
-                    android:layout_height="@dimen/space55"
-                    android:layout_marginTop="@dimen/space16"
-                    android:clickable="true"
-                    android:focusable="true"
-                    app:layout_constraintTop_toBottomOf="@id/clReadLostAnimal">
-
-                    <TextView
-                        android:id="@+id/tvReadFoundAnimal"
-                        style="@style/UserActionText"
-                        android:text="@string/found_animals"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent" />
-
-                </androidx.constraintlayout.widget.ConstraintLayout>
-
-                <androidx.constraintlayout.widget.ConstraintLayout
-                    android:id="@+id/clReadSeemsHomeAnimal"
-                    style="@style/registerParentRoot"
-                    android:layout_height="@dimen/space55"
-                    android:layout_marginTop="@dimen/space16"
-                    android:clickable="true"
-                    android:focusable="true"
-                    app:layout_constraintTop_toBottomOf="@id/clReadFoundAnimal">
-
-
-                    <TextView
-                        android:id="@+id/tvReadSeemsHomeAnimal"
-                        style="@style/UserActionText"
-                        android:text="@string/seems_home"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent" />
-
-                </androidx.constraintlayout.widget.ConstraintLayout>
-
-                <View
-                    android:layout_width="match_parent"
-                    android:layout_height="@dimen/space12"
-                    app:layout_constraintTop_toBottomOf="@id/clReadSeemsHomeAnimal" />
-
-            </androidx.constraintlayout.widget.ConstraintLayout>
-
-            <!--WATCH ANIMALS-->
-
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:id="@+id/clRootWatchAnimals"
-                style="@style/registerParentRoot"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/space32"
-                android:clickable="true"
-                android:focusable="true"
-                android:foreground="@null"
-                app:layout_constraintTop_toBottomOf="@id/clRootReadPublication"
-                app:layout_constraintTop_toTopOf="@null">
-
-                <TextView
-                    android:id="@+id/tvWatch"
-                    style="@style/UserActionTitle"
-                    android:text="@string/watch" />
-
-
-                <androidx.constraintlayout.widget.ConstraintLayout
-                    android:id="@+id/clWatchAnimals"
-                    style="@style/registerParentRoot"
-                    android:layout_height="@dimen/space55"
-                    android:layout_marginTop="@dimen/space16"
-                    android:clickable="true"
-                    android:focusable="true"
-                    app:layout_constraintTop_toBottomOf="@id/tvWatch">
-
-                    <TextView
-                        android:id="@+id/tvWatchAnimals"
-                        style="@style/UserActionText"
-                        android:text="@string/watch_animals"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent" />
-
-                </androidx.constraintlayout.widget.ConstraintLayout>
-
-
-                <androidx.constraintlayout.widget.ConstraintLayout
-                    android:id="@+id/clWatchCats"
-                    style="@style/registerParentRoot"
-                    android:layout_height="@dimen/space55"
-                    android:layout_marginTop="@dimen/space16"
-                    android:clickable="true"
-                    android:focusable="true"
-                    app:layout_constraintTop_toBottomOf="@id/clWatchAnimals">
-
-                    <TextView
-                        android:id="@+id/tvWatchCats"
-                        style="@style/UserActionText"
-                        android:text="@string/watch_cats"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent" />
-
-                </androidx.constraintlayout.widget.ConstraintLayout>
-
-                <androidx.constraintlayout.widget.ConstraintLayout
-                    android:id="@+id/clWatchDogs"
-                    style="@style/registerParentRoot"
-                    android:layout_height="@dimen/space55"
-                    android:layout_marginTop="@dimen/space16"
-                    android:clickable="true"
-                    android:focusable="true"
-                    app:layout_constraintTop_toBottomOf="@id/clWatchCats">
-
-
-                    <TextView
-                        android:id="@+id/tvWatchDogs"
-                        style="@style/UserActionText"
-                        android:text="@string/watch_dogs"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent" />
-
-                </androidx.constraintlayout.widget.ConstraintLayout>
-
-                <View
-                    android:layout_width="match_parent"
-                    android:layout_height="@dimen/space12"
-                    app:layout_constraintTop_toBottomOf="@id/clWatchDogs" />
-
-            </androidx.constraintlayout.widget.ConstraintLayout>
-
-        </androidx.constraintlayout.widget.ConstraintLayout>
-
+            android:layout_width="match_parent"
+            layout="@layout/read_publications" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
+
+
 
 </androidx.core.widget.NestedScrollView>

@@ -14,10 +14,15 @@ fun ImageView.loadImage(url: String?) {
     }
 }
 
-fun ImageView.loadAvatarByFile(file: File) {
+fun ImageView.loadImage(image: Int) {
+    Glide
+        .with(this)
+        .load(image)
+        .into(this)
+}
 
+fun ImageView.loadImage(file: File) {
     val drawable = Drawable.createFromPath(file.absolutePath)
-
     if (file.exists()) {
         Glide
             .with(this)

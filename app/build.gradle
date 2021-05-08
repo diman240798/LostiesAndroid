@@ -35,7 +35,7 @@ android {
 
     signingConfigs {
         release {
-            storeFile file("../losties.keystore")
+            storeFile file("../losties.jks")
             storePassword "qwertyuiop123"
             keyAlias "qwertyuiop123"
             keyPassword "qwertyuiop123"
@@ -45,8 +45,8 @@ android {
     buildTypes {
         release {
             signingConfig signingConfigs.release
-            shrinkResources true
-            minifyEnabled true
+            shrinkResources false
+            minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }

@@ -5,10 +5,13 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.Observer
 import com.xwray.groupie.GroupAdapter
 import com.xwray.groupie.kotlinandroidextensions.GroupieViewHolder
 import kotlinx.android.synthetic.main.fragment_feed.*
 import nanicky.losties.android.R
+import nanicky.losties.android.features.watchpublication.ShowPublicationObject
+import org.koin.android.ext.android.inject
 import org.koin.android.viewmodel.ext.android.viewModel
 
 class FeedFragment: Fragment() {
@@ -21,7 +24,8 @@ class FeedFragment: Fragment() {
         const val TAG = "FeedFragment"
     }
 
-    val viewModel: FeedFragmentViewModel by viewModel()
+    private val viewModel: FeedFragmentViewModel by viewModel()
+    private val showPublicationObject: ShowPublicationObject by inject()
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -35,8 +39,14 @@ class FeedFragment: Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         val adapter = GroupAdapter<GroupieViewHolder>()
-        adapter.add(FeedListItem())
+        val feedListItem = FeedListItem()
+        adapter.add(feedListItem)
         vpFeed.adapter = adapter
 
+        viewModel.newPublications.observe(viewLifecycleOwner, Observer {
+            feedListItem.setItems(it, showPublicationObject)
+        })
+
+        viewModel.getNewPublications()
     }
 }

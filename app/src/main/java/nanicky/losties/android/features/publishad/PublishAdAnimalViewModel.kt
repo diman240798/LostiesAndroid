@@ -21,9 +21,9 @@ class PublishAdAnimalViewModel(
         }
     }
 
-    fun addFoundAnimal(addAnimalRequest: AddAnimalRequest) {
+    fun addTakenAnimal(addAnimalRequest: AddAnimalRequest) {
         io {
-            repo.addFoundAnimal(addAnimalRequest)
+            repo.addTakenAnimal(addAnimalRequest)
         }
     }
 

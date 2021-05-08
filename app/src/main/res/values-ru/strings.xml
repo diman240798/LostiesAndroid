@@ -1,5 +1,5 @@
 <resources>
-    <string name="i_understand">I understand</string>
+    <string name="i_understand">Я понимаю</string>
     <string name="yes">Yes</string>
     <string name="cancel">Cancel</string>
     <string name="email">Почта</string>
@@ -21,7 +21,7 @@
     <string name="seems_home">Вроде домашнее</string>
     <string name="read">Полистать</string>
     <string name="losties">Потеряшки</string>
-    <string name="found_animals">Подобранные</string>
+    <string name="taken_animals">Подобранные</string>
     <string name="lost_animal">Потерял свою лапу(</string>
     <string name="permission">Разрешение</string>
     <string name="need_location_permissions">Следующие разрешения необходимы для определения адреса</string>
@@ -40,4 +40,7 @@
     <string name="watch">Просмотреть</string>
     <string name="watch_animals">Лайкать животных</string>
     <string name="watch_cats">Лайкать котов</string>
+    <string name="why_should_i_register_description">Регистрация необхожима, чтобы привязать поданные вами объявления. Не является обязательной!</string>
+    <string name="error_facebook_user_get">Ошибка регистрации facebook</string>
+    <string name="publish_on_social_networks">Опубликовать в соц. сетях</string>
 </resources>

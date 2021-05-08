@@ -1,8 +1,8 @@
 package nanicky.losties.android.features.rateanimals
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
+import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import com.bumptech.glide.Glide
 import kotlinx.android.synthetic.main.activity_rate_animal.*
@@ -27,10 +27,11 @@ class RateAnimalActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_rate_animal)
 
-        val animalType = intent.getStringExtra(PublishAdAnimalActivity.ANIMAL_TYPE_EXTRA)?.toAnimalType()
+        val animalType =
+            intent.getStringExtra(PublishAdAnimalActivity.ANIMAL_TYPE_EXTRA)?.toAnimalType()
 
         animalType?.let {
-           viewmodel.type = animalType
+            viewmodel.type = animalType
         }
 
         loadNextImage()

@@ -26,6 +26,7 @@ fun checkPermissionsOrgetLocation(
         ContextCompat.checkSelfPermission(activity, Manifest.permission.ACCESS_FINE_LOCATION)
     if (checkSelfPermission != PackageManager.PERMISSION_GRANTED) {
         activity.showInfoAlertDialog(
+            l,
             l.tr(R.string.permission),
             l.tr(R.string.need_location_permissions),
             { _, _ -> requestLocationPermission(activity) },
@@ -57,8 +58,7 @@ fun getCompleteAddressString(
     var strAdd : String? = null
     val geocoder = Geocoder(context, Locale.getDefault())
     try {
-        val addresses: List<Address>? =
-            geocoder.getFromLocation(latitude, longtitude, 1)
+        val addresses: List<Address>? = geocoder.getFromLocation(latitude, longtitude, 1)
         if (addresses != null) {
             val returnedAddress: Address = addresses[0]
             val strReturnedAddress = StringBuilder("")

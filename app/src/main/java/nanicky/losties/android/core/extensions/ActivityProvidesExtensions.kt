@@ -3,11 +3,13 @@ package nanicky.losties.android.core.extensions
 import nanicky.losties.android.R
 import nanicky.losties.android.core.base.BaseActivity
 import android.app.Activity
+import android.content.Context
 import android.content.DialogInterface
 import android.view.View
 import androidx.appcompat.app.AlertDialog
 import com.google.android.material.bottomsheet.BottomSheetBehavior
 import com.google.android.material.bottomsheet.BottomSheetDialog
+import nanicky.losties.android.core.base.Localizer
 
 
 fun Activity.provideProgressDialog(): AlertDialog =
@@ -17,7 +19,8 @@ fun Activity.provideProgressDialog(): AlertDialog =
     }.create()
 
 
-fun BaseActivity.showInfoAlertDialog(
+fun Context.showInfoAlertDialog(
+    l: Localizer,
     title: String,
     message: String,
     positiveAction: (DialogInterface, Int) -> Unit = { _, _ -> },
@@ -36,7 +39,8 @@ fun BaseActivity.showInfoAlertDialog(
     dialog.show()
 }
 
-fun BaseActivity.showQuestionAlertDialog(
+fun Context.showQuestionAlertDialog(
+    l: Localizer,
     title: String,
     message: String,
     positiveAction: (DialogInterface, Int) -> Unit,
@@ -53,7 +57,6 @@ fun BaseActivity.showQuestionAlertDialog(
 
     dialog.show()
     dialog.setTypefaceInDialog(this)
-
 }
 
 

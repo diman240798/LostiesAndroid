@@ -14,11 +14,8 @@ import okhttp3.ResponseBody;
 
 public class FileUtils {
 
-        private static final String AVATAR_FILENAME = "avatar.jpg";
-        private static final String SN_AVATAR_FILENAME = "sn_avatar.jpg";
-
-        private static final String AVATAR_THUMBNAIL = "thumbnail.jpg";
-
+    public static final String AVATAR_FILENAME = "avatar.jpg";
+    public static final String AVATAR_THUMBNAIL = "thumbnail.jpg";
 
     public static final int DESIRED_WIDTH = 400;
     public static final int DESIRED_HEIGHT = 300;
@@ -67,7 +64,9 @@ public class FileUtils {
         return true;
     }
 
-    public static File thumbnail(Context context, File inputImage) {
+    public static File thumbnail(Context context) {
+
+        File inputImage = new File(context.getFilesDir(), AVATAR_FILENAME);
 
         FileOutputStream fos = null;
 
@@ -77,8 +76,8 @@ public class FileUtils {
             BitmapFactory.decodeFile(inputImage.getAbsolutePath(), bitmapOptions);
 
             // find the best scaling factor for the desired dimensions
-            float widthScale = (float)bitmapOptions.outWidth / DESIRED_WIDTH;
-            float heightScale = (float)bitmapOptions.outHeight / DESIRED_HEIGHT;
+            float widthScale = (float) bitmapOptions.outWidth / DESIRED_WIDTH;
+            float heightScale = (float) bitmapOptions.outHeight / DESIRED_HEIGHT;
             float scale = Math.min(widthScale, heightScale);
 
             int sampleSize = 1;
@@ -109,8 +108,6 @@ public class FileUtils {
         }
 
     }
-
-
 
 
 }

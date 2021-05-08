@@ -15,7 +15,7 @@
         <TextView
             android:id="@+id/tvTitle"
             style="@style/TitleTextView"
-            android:text="@string/found_take_home"
+            android:text="@string/taken_take_home"
             tools:ignore="MissingConstraints" />
 
         <androidx.viewpager2.widget.ViewPager2
@@ -42,7 +42,8 @@
             android:layout_width="@dimen/space0"
             android:layout_height="@dimen/space80"
             android:text="@string/load_photo"
-
+            android:layout_marginStart="@dimen/space16"
+            android:layout_marginEnd="@dimen/space16"
             android:layout_marginTop="@dimen/space20"
             app:layout_constraintEnd_toEndOf="@+id/vpPhotos"
             app:layout_constraintStart_toStartOf="@+id/vpPhotos"

@@ -14,23 +14,25 @@ import com.xwray.groupie.kotlinandroidextensions.GroupieViewHolder
 import kotlinx.android.synthetic.main.activity_publish_ad_animal.*
 import nanicky.losties.android.R
 import nanicky.losties.android.core.base.BaseActivity
+import nanicky.losties.android.core.data.models.Animal
+import nanicky.losties.android.core.data.models.GeoAddress
+import nanicky.losties.android.core.data.models.UserData
+import nanicky.losties.android.core.extensions.gone
 import nanicky.losties.android.core.extensions.showInfoAlertDialog
 import nanicky.losties.android.core.extensions.showToast
+import nanicky.losties.android.core.extensions.visible
 import nanicky.losties.android.core.ui.EmailTextChangeListener
 import nanicky.losties.android.core.utils.GeoResult
 import nanicky.losties.android.core.utils.checkPermissionsOrgetLocation
 import nanicky.losties.android.core.utils.getCompleteAddressString
 import nanicky.losties.android.features.common.requests.AddAnimalRequest
-import nanicky.losties.android.core.data.models.GeoAddress
-import nanicky.losties.android.core.data.models.Animal
-import nanicky.losties.android.core.data.models.UserData
-import nanicky.losties.android.core.extensions.gone
-import nanicky.losties.android.core.extensions.visible
+import nanicky.losties.android.features.enums.PublicationTypes
 import nanicky.losties.android.features.enums.PublicationTypes.*
 import nanicky.losties.android.features.enums.toPublicationType
 import nanicky.losties.losties.util.AnimalType
 import org.koin.android.viewmodel.ext.android.viewModel
 import java.io.File
+import java.lang.Exception
 import java.util.*
 
 
@@ -40,8 +42,9 @@ class PublishAdAnimalActivity : BaseActivity() {
         const val ANIMAL_TYPE_EXTRA = "ANIMAL_TYPE_EXTRA"
         const val MY_PERMISSIONS_REQUEST_LOCATION = 99
 
-        var LAST_ADDRESS_SINCE_LAUNCH : GeoResult? = null
+        var LAST_ADDRESS_SINCE_LAUNCH: GeoResult? = null
     }
+
 
     private val viewmodel: PublishAdAnimalViewModel by viewModel()
 
@@ -52,19 +55,17 @@ class PublishAdAnimalActivity : BaseActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_publish_ad_animal)
 
-        val publicationType = intent.getStringExtra(ANIMAL_TYPE_EXTRA)
+        val publicationType = intent.getStringExtra(ANIMAL_TYPE_EXTRA)!!.toPublicationType()
 
-        publicationType?.let {
-            when (it.toPublicationType()) {
-                LOST -> {
-                    tvTitle.text = l.tr(R.string.lost_animal)
-                }
-                TAKEN -> {
-                    tvTitle.text = l.tr(R.string.found_take_home)
-                }
-                SEEN -> {
-                    tvTitle.text = l.tr(R.string.seems_home)
-                }
+        when (publicationType) {
+            LOST -> {
+                tvTitle.text = l.tr(R.string.lost_animal)
+            }
+            TAKEN -> {
+                tvTitle.text = l.tr(R.string.taken_take_home)
+            }
+            SEEN -> {
+                tvTitle.text = l.tr(R.string.seems_home)
             }
         }
 
@@ -102,24 +103,26 @@ class PublishAdAnimalActivity : BaseActivity() {
         sendButtonPrepare(publicationType)
     }
 
-    private fun sendButtonPrepare(publicationType: String?) {
+    private fun sendButtonPrepare(publicationType: PublicationTypes) {
         btSend.setOnClickListener {
-            /*if (photoPath == null) {
+            if (photoPaths.isEmpty()) {
                 showInfoAlertDialog(
+                    l,
                     l.tr(R.string.choose_photo_please),
                     l.tr(R.string.required_for_animal_identification)
                 )
                 return@setOnClickListener
-            }*/
+            }
 
             val photos = mutableListOf<ByteArray>()
             photoPaths.forEach { photoPath ->
-                    val photoFile = File(photoPath)
-                    photos.add(photoFile.readBytes())
+                val photoFile = File(photoPath)
+                photos.add(photoFile.readBytes())
             }
 
             if (etAddress.text.toString().isEmpty()) {
                 showInfoAlertDialog(
+                    l,
                     l.tr(R.string.please_specify_address),
                     l.tr(R.string.required_for_animal_identification)
                 )
@@ -145,7 +148,8 @@ class PublishAdAnimalActivity : BaseActivity() {
 
             val email = etMail.text.toString()
 
-            val type = (spinnerType.adapter as TextImageAdapter).items[spinnerType.selectedItemPosition].animalType
+            val type =
+                (spinnerType.adapter as TextImageAdapter).items[spinnerType.selectedItemPosition].animalType
 
             val userName = etUserName.text.toString()
             val animalName = etAnimalName.text.toString()
@@ -153,6 +157,8 @@ class PublishAdAnimalActivity : BaseActivity() {
 
             val longtitude = LAST_ADDRESS_SINCE_LAUNCH?.longtitude ?: 0.0
             val latitude = LAST_ADDRESS_SINCE_LAUNCH?.latitude ?: 0.0
+
+            val userId = userRepository.getId()
 
             val addAnimalRequest = AddAnimalRequest(
                 Animal(
@@ -174,22 +180,21 @@ class PublishAdAnimalActivity : BaseActivity() {
                     latitude,
                     address
                 ),
-                photos = photos
+                photos = photos,
+                userId = userId
             )
 
-            if (publicationType != null) {
-                when (publicationType.toPublicationType()) {
-                    LOST -> {
-                        viewmodel.addLostAnimal(addAnimalRequest)
-                    }
-                    TAKEN -> {
-                        viewmodel.addFoundAnimal(addAnimalRequest)
-                    }
-                    SEEN -> {
-                        viewmodel.addSeenAnimal(addAnimalRequest)
-                    }
-
+            when (publicationType) {
+                LOST -> {
+                    viewmodel.addLostAnimal(addAnimalRequest)
                 }
+                TAKEN -> {
+                    viewmodel.addTakenAnimal(addAnimalRequest)
+                }
+                SEEN -> {
+                    viewmodel.addSeenAnimal(addAnimalRequest)
+                }
+
             }
         }
     }
@@ -252,6 +257,19 @@ class PublishAdAnimalActivity : BaseActivity() {
                     tilAddress.visibility = View.VISIBLE
                 })
         }
+
+        Thread {
+            try {
+                Thread.sleep(7000)
+                runOnUiThread {
+                    if (etAddress.text.isNullOrEmpty()) {
+                        pbAddress.visibility = View.GONE
+                        tilAddress.visibility = View.VISIBLE
+                    }
+                }
+            } catch (ignored: Exception) {
+            }
+        }.start()
     }
 
     private fun setUpAddButton(

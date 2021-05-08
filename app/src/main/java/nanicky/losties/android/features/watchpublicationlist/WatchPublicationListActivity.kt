@@ -1,4 +1,4 @@
-package nanicky.losties.android.features.watchad
+package nanicky.losties.android.features.watchpublicationlist
 
 import android.os.Bundle
 import androidx.lifecycle.Observer
@@ -10,17 +10,18 @@ import nanicky.losties.android.R
 import nanicky.losties.android.core.base.BaseActivity
 import nanicky.losties.android.features.enums.PublicationTypes
 import nanicky.losties.android.features.enums.toPublicationType
-import nanicky.losties.android.features.showpublication.ShowPublicationObject
-import nanicky.losties.android.features.watchad.item.WatchItem
+import nanicky.losties.android.features.watchpublication.ShowPublicationObject
+import nanicky.losties.android.features.watchpublicationlist.item.WatchItem
 import org.koin.android.ext.android.inject
 import org.koin.android.viewmodel.ext.android.viewModel
 
-class WatchAdActivity : BaseActivity() {
+class WatchPublicationListActivity : BaseActivity() {
 
-    val viewModel: WatchAdActivityViewModel by viewModel()
+    val viewModel: WatchPublicationListActivityViewModel by viewModel()
 
     companion object {
         const val ANIMAL_TYPE_EXTRA = "ANIMAL_TYPE_EXTRA"
+        const val USER_ID_EXTRA = "USER_ID_EXTRA"
     }
 
 
@@ -48,24 +49,26 @@ class WatchAdActivity : BaseActivity() {
         }
 
         val publicationType = intent.getStringExtra(ANIMAL_TYPE_EXTRA)!!.toPublicationType()
+        val userId = intent.getStringExtra(USER_ID_EXTRA)
+
 
         when (publicationType) {
             PublicationTypes.LOST -> {
                 tvTitle.text = l.tr(R.string.lost_animal)
-                viewModel.getLostAnimals()
+                viewModel.getLostAnimals(userId)
             }
             PublicationTypes.TAKEN -> {
-                tvTitle.text = l.tr(R.string.found_take_home)
-                viewModel.getFoundAnimals()
+                tvTitle.text = l.tr(R.string.taken_take_home)
+                viewModel.getTakenAnimals(userId)
             }
             PublicationTypes.SEEN -> {
                 tvTitle.text = l.tr(R.string.seems_home)
-                viewModel.getSeenAnimals()
+                viewModel.getSeenAnimals(userId)
             }
         }
 
         viewModel.animals.observe(this, Observer {
-            val newItems = it.map { WatchItem(it, showPublicationObject, publicationType) }.toMutableList()
+            val newItems = it.map { WatchItem(it, showPublicationObject, publicationType, userId) }.toMutableList()
             setNewItems(adapter, newItems)
         })
     }

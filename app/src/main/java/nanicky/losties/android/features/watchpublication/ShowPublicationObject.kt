@@ -1,4 +1,4 @@
-package nanicky.losties.android.features.showpublication
+package nanicky.losties.android.features.watchpublication
 
 import nanicky.losties.android.core.data.models.AnimalPublication
 

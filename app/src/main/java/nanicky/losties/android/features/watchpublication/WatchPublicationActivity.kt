@@ -1,30 +1,29 @@
-package nanicky.losties.android.features.showpublication
+package nanicky.losties.android.features.watchpublication
 
 import android.os.Bundle
-import com.bumptech.glide.Glide
 import com.xwray.groupie.GroupAdapter
 import com.xwray.groupie.kotlinandroidextensions.GroupieViewHolder
-import kotlinx.android.synthetic.main.activity_publish_ad_animal.*
 import kotlinx.android.synthetic.main.activity_show_publication.*
-import kotlinx.android.synthetic.main.activity_show_publication.indicator
-import kotlinx.android.synthetic.main.activity_show_publication.tvTitle
-import kotlinx.android.synthetic.main.activity_show_publication.vpPhotos
 import nanicky.losties.android.R
 import nanicky.losties.android.core.base.BaseActivity
+import nanicky.losties.android.core.extensions.loadImage
+import nanicky.losties.android.core.extensions.visible
+import nanicky.losties.android.core.utils.getImageUrl
 import nanicky.losties.android.features.enums.PublicationTypes
 import nanicky.losties.android.features.enums.toPublicationType
 import nanicky.losties.android.features.publishad.ImageItem
-import nanicky.losties.android.features.publishad.PublishAdAnimalActivity
-import nanicky.losties.android.features.watchad.item.getImageUrl
 import org.koin.android.ext.android.inject
+import org.koin.android.viewmodel.ext.android.viewModel
 
-class ShowPublicationActivity : BaseActivity() {
+class WatchPublicationActivity : BaseActivity() {
 
     companion object {
         const val ANIMAL_TYPE_EXTRA = "ANIMAL_TYPE_EXTRA"
+        const val USER_ID_EXTRA = "USER_ID_EXTRA"
     }
 
     private val showPublicationObject: ShowPublicationObject by inject()
+    private val viewModel: WatchPublicationActivityViewModel by viewModel()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -64,15 +63,21 @@ class ShowPublicationActivity : BaseActivity() {
         tvAnimalName.text = animalData.name
         val type = animalData.type!!
         tvAnimalType.text = type.rusName
-        Glide.with(this).load(type.image).into(ivAnimalType)
+        ivAnimalType.loadImage(type.image)
         tvAnimalBreed.text = animalData.breed
-        tvUserName.text = animal.user!!.name
+        tvUserName.text = animal.userData!!.name
         tvAddress.text = animal.geoAddress!!.address
-        tvPhone0.text = animal.user.numbers
-        tvMail.text = animal.user.emails
-        tvSocial0.text = animal.user.networksUrls
+        tvPhone0.text = animal.userData.numbers
+        tvMail.text = animal.userData.emails
+        tvSocial0.text = animal.userData.networksUrls
 
 
-
+        val userId = intent.getStringExtra(USER_ID_EXTRA)
+        userId?.let {
+            btPublishOnSocailNetworks.visible()
+            btPublishOnSocailNetworks.setOnClickListener {
+                viewModel.publishOnSocailNetworks(animal.id!!, publicationType)
+            }
+        }
     }
 }

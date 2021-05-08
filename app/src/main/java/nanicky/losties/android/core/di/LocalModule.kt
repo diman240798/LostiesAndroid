@@ -7,7 +7,7 @@ import nanicky.losties.android.core.data.local.SettingsRepository
 import nanicky.losties.android.core.data.local.UserRepository
 import nanicky.losties.android.core.data.remote.AnimalRemoteCrudRepository
 import nanicky.losties.android.features.rateanimals.RateAnimalRepository
-import nanicky.losties.android.features.showpublication.ShowPublicationObject
+import nanicky.losties.android.features.watchpublication.ShowPublicationObject
 import org.koin.core.qualifier.named
 import org.koin.dsl.module
 
@@ -43,13 +43,7 @@ fun localModule() = module {
     }
 
     single {
-        AnimalRemoteCrudRepository(
-            get(
-                named(
-                    DEFAULT_RETROFIT_CLIENT
-                )
-            ), get(named(ANIMAL_RECOGNIZER_RETROFIT_CLIENT))
-        )
+        AnimalRemoteCrudRepository(get(named(DEFAULT_RETROFIT_CLIENT)), get(named(ANIMAL_RECOGNIZER_RETROFIT_CLIENT)))
     }
 
     single {

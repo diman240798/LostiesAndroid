@@ -1,4 +1,8 @@
 <resources>
+    <string name="facebook_app_id">262826908481638</string>
+    <string name="fb_login_protocol_scheme">fb262826908481638</string>
+    <integer name="com_vk_sdk_AppId">7655388</integer>
+
     <string name="app_name" translatable="false">Losties</string>
     <string name="i_understand">I understand</string>
     <string name="yes">Yes</string>
@@ -22,11 +26,11 @@
     <string name="vk" translatable="false">VK</string>
     <string name="publish">Опубликовать</string>
     <string name="lost">Потерял</string>
-    <string name="found_take_home">Нашел, беру себе</string>
+    <string name="taken_take_home">Нашел, беру себе</string>
     <string name="seems_home">Вроде домашнее</string>
     <string name="read">Полистать</string>
     <string name="losties">Потеряшки</string>
-    <string name="found_animals">Подобранные</string>
+    <string name="taken_animals">Подобранные</string>
     <string name="lost_animal">Потерял свою лапу(</string>
     <string name="permission">Разрешение</string>
     <string name="need_location_permissions">Следующие разрешения необходимы для определения адреса</string>
@@ -47,4 +51,7 @@
     <string name="watch_animals">Лайкать животных</string>
     <string name="watch_cats">Лайкать котов</string>
     <string name="watch_dogs">Лайкать собак</string>
+    <string name="why_should_i_register_description">Регистрация необхожима, чтобы привязать поданные вами объявления. Не является обязательной.</string>
+    <string name="error_facebook_user_get">Ошибка регистрации facebook</string>
+    <string name="publish_on_social_networks">Опубликовать в соц. сетях</string>
 </resources>

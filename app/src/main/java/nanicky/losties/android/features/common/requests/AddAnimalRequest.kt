@@ -6,7 +6,8 @@ import nanicky.losties.android.core.data.models.GeoAddress
 
 class AddAnimalRequest(
     var animal: Animal?= null,
-    val user: UserData?= null,
+    val userData: UserData?= null,
     val geoAddress: GeoAddress?= null,
-    val photos: List<ByteArray>
+    val photos: List<ByteArray>,
+    val userId: String? = null
 )

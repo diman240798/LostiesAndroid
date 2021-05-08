@@ -1,16 +1,14 @@
 package nanicky.losties.android.features.publishad
 
-import com.bumptech.glide.Glide
 import com.xwray.groupie.kotlinandroidextensions.GroupieViewHolder
 import com.xwray.groupie.kotlinandroidextensions.Item
 import kotlinx.android.synthetic.main.item_image.*
 import nanicky.losties.android.R
+import nanicky.losties.android.core.extensions.loadImage
 
 class ImageItem(val photo: String) : Item() {
     override fun bind(viewHolder: GroupieViewHolder, position: Int) {
-        Glide.with(viewHolder.containerView.context)
-            .load(photo)
-            .into(viewHolder.imageView)
+        viewHolder.imageView.loadImage(photo)
     }
 
     override fun getLayout(): Int {

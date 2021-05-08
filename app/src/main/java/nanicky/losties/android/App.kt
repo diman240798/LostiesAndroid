@@ -4,6 +4,8 @@ import nanicky.losties.android.core.di.localModule
 import nanicky.losties.android.core.di.remoteModule
 import nanicky.losties.android.core.di.viewModelModule
 import android.app.Application
+import com.facebook.FacebookSdk
+import com.facebook.appevents.AppEventsLogger
 import com.jakewharton.threetenabp.AndroidThreeTen
 import org.koin.android.ext.koin.androidContext
 import org.koin.android.ext.koin.androidLogger
@@ -34,7 +36,7 @@ class App: Application() {
             )
         }
 
-//        FacebookSdk.sdkInitialize(applicationContext)
+        FacebookSdk.sdkInitialize(applicationContext)
 //        AppEventsLogger.activateApp(this@App)
     }
 

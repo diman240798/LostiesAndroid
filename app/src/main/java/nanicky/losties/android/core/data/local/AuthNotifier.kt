@@ -7,5 +7,4 @@ import nanicky.losties.android.core.data.models.vk.VKUser
 class AuthNotifier {
     val vkUid = SingleLiveEvent<VKUser>()
     val facebookUid = SingleLiveEvent<FacebookUser>()
-    val loggedIn = SingleLiveEvent<Boolean>()
 }
