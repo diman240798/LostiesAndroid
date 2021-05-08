@@ -12,7 +12,7 @@ import nanicky.losties.android.R
 import nanicky.losties.android.core.base.BaseActivity
 import nanicky.losties.android.core.base.Localizer
 import nanicky.losties.android.core.extensions.showInfoAlertDialog
-import nanicky.losties.android.features.publishad.PublishAdAnimalActivity
+import nanicky.losties.android.features.publishad.PublishAnimalActivity
 import timber.log.Timber
 import java.util.*
 
@@ -40,7 +40,7 @@ fun checkPermissionsOrgetLocation(
 fun requestLocationPermission(activity: BaseActivity) {
     ActivityCompat.requestPermissions(
         activity, arrayOf(Manifest.permission.ACCESS_FINE_LOCATION),
-        PublishAdAnimalActivity.MY_PERMISSIONS_REQUEST_LOCATION
+        PublishAnimalActivity.MY_PERMISSIONS_REQUEST_LOCATION
     )
 }
 

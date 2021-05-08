@@ -36,7 +36,7 @@ import java.lang.Exception
 import java.util.*
 
 
-class PublishAdAnimalActivity : BaseActivity() {
+class PublishAnimalActivity : BaseActivity() {
 
     companion object {
         const val ANIMAL_TYPE_EXTRA = "ANIMAL_TYPE_EXTRA"
@@ -46,7 +46,7 @@ class PublishAdAnimalActivity : BaseActivity() {
     }
 
 
-    private val viewmodel: PublishAdAnimalViewModel by viewModel()
+    private val viewmodel: PublishAnimalViewModel by viewModel()
 
     private lateinit var choosePhotoHelper: ChoosePhotoHelper
     private var photoPaths: MutableList<String> = mutableListOf()

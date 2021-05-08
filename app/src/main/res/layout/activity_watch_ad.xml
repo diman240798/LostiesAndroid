@@ -14,19 +14,16 @@
         app:layout_constraintTop_toTopOf="parent"
         android:layout_margin="@dimen/space23" />
 
-  <!--  <ImageView
-        android:id="@+id/ivOpenFilters"
+    <ImageView
+        android:id="@+id/btOpenMap"
         android:layout_width="40dp"
         android:layout_height="40dp"
-        android:src="@drawable/filters"
-
-
-        android:textColor="@color/colorBlueText"
+        android:src="@drawable/ic_menu_mapmode"
         android:layout_marginEnd="@dimen/space16"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@id/tvTitle"
         app:layout_constraintBottom_toBottomOf="@id/tvTitle"
-        />-->
+        app:tint="@color/colorBlueText" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvAnimalList"

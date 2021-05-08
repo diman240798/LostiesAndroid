@@ -10,7 +10,7 @@ import kotlinx.android.synthetic.main.fragment_actions.*
 import kotlinx.android.synthetic.main.read_publications.*
 import nanicky.losties.android.R
 import nanicky.losties.android.features.enums.PublicationTypes
-import nanicky.losties.android.features.publishad.PublishAdAnimalActivity
+import nanicky.losties.android.features.publishad.PublishAnimalActivity
 import nanicky.losties.android.features.rateanimals.RateAnimalActivity
 import nanicky.losties.android.features.watchpublicationlist.WatchPublicationListActivity
 import nanicky.losties.losties.util.AnimalType
@@ -36,20 +36,20 @@ class ActionsFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         clLostAnimal.setOnClickListener {
-            val intent = Intent(context, PublishAdAnimalActivity::class.java)
-            intent.putExtra(PublishAdAnimalActivity.ANIMAL_TYPE_EXTRA, PublicationTypes.LOST.name)
+            val intent = Intent(context, PublishAnimalActivity::class.java)
+            intent.putExtra(PublishAnimalActivity.ANIMAL_TYPE_EXTRA, PublicationTypes.LOST.name)
             requireContext().startActivity(intent)
         }
 
         clTakenAnimal.setOnClickListener {
-            val intent = Intent(context, PublishAdAnimalActivity::class.java)
-            intent.putExtra(PublishAdAnimalActivity.ANIMAL_TYPE_EXTRA, PublicationTypes.TAKEN.name)
+            val intent = Intent(context, PublishAnimalActivity::class.java)
+            intent.putExtra(PublishAnimalActivity.ANIMAL_TYPE_EXTRA, PublicationTypes.TAKEN.name)
             requireContext().startActivity(intent)
         }
 
         clSeemsHomeAnimal.setOnClickListener {
-            val intent = Intent(context, PublishAdAnimalActivity::class.java)
-            intent.putExtra(PublishAdAnimalActivity.ANIMAL_TYPE_EXTRA, PublicationTypes.SEEN.name)
+            val intent = Intent(context, PublishAnimalActivity::class.java)
+            intent.putExtra(PublishAnimalActivity.ANIMAL_TYPE_EXTRA, PublicationTypes.SEEN.name)
             requireContext().startActivity(intent)
         }
 

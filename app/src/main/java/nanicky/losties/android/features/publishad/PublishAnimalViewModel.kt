@@ -8,7 +8,7 @@ import nanicky.losties.android.features.common.requests.AddAnimalRequest
 import nanicky.losties.losties.util.AnimalType
 import java.io.File
 
-class PublishAdAnimalViewModel(
+class PublishAnimalViewModel(
     private val repo: AnimalRemoteCrudRepository
 ) : BaseViewModel<String, String>() {
 

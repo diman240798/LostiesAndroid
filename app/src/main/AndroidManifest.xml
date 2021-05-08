@@ -70,7 +70,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".features.publishad.PublishAdAnimalActivity"
+            android:name=".features.publishad.PublishAnimalActivity"
             android:exported="true"
             android:screenOrientation="portrait" />
         <activity

@@ -27,7 +27,7 @@
     <string name="need_location_permissions">Следующие разрешения необходимы для определения адреса</string>
     <string name="send">Отправить</string>
     <string name="choose_photo_please">Пожалуйста, выберите фото</string>
-    <string name="required_for_animal_identification">Фото необходимо чтобы распознать животное</string>
+    <string name="required_for_animal_identification">Это необходимо чтобы распознать животное</string>
     <string name="please_specify_address">Пожалуйста, укажите аддресс</string>
     <string name="animal_name">Кличка животного</string>
     <string name="breed">Порода</string>

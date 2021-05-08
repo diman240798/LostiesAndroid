@@ -10,7 +10,7 @@ import nanicky.losties.android.R
 import nanicky.losties.android.core.extensions.gone
 import nanicky.losties.android.core.extensions.invisible
 import nanicky.losties.android.core.extensions.visible
-import nanicky.losties.android.features.publishad.PublishAdAnimalActivity
+import nanicky.losties.android.features.publishad.PublishAnimalActivity
 import nanicky.losties.losties.util.AnimalType
 import nanicky.losties.losties.util.toAnimalType
 import org.koin.android.viewmodel.ext.android.viewModel
@@ -28,7 +28,7 @@ class RateAnimalActivity : AppCompatActivity() {
         setContentView(R.layout.activity_rate_animal)
 
         val animalType =
-            intent.getStringExtra(PublishAdAnimalActivity.ANIMAL_TYPE_EXTRA)?.toAnimalType()
+            intent.getStringExtra(PublishAnimalActivity.ANIMAL_TYPE_EXTRA)?.toAnimalType()
 
         animalType?.let {
             viewmodel.type = animalType

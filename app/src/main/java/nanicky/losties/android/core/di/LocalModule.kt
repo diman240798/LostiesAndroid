@@ -6,6 +6,7 @@ import nanicky.losties.android.core.data.local.FirstTimeRunRepository
 import nanicky.losties.android.core.data.local.SettingsRepository
 import nanicky.losties.android.core.data.local.UserRepository
 import nanicky.losties.android.core.data.remote.AnimalRemoteCrudRepository
+import nanicky.losties.android.features.map.MapActivityObject
 import nanicky.losties.android.features.rateanimals.RateAnimalRepository
 import nanicky.losties.android.features.watchpublication.ShowPublicationObject
 import org.koin.core.qualifier.named
@@ -52,6 +53,10 @@ fun localModule() = module {
 
     single {
         ShowPublicationObject()
+    }
+
+    single {
+        MapActivityObject()
     }
 
 }

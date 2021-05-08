@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
@@ -101,12 +100,14 @@
             <!--READ PUBLICATIONS-->
 
             <include
+                layout="@layout/read_publications"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/space16"
                 android:layout_marginTop="@dimen/space32"
+                android:layout_marginEnd="@dimen/space16"
                 app:layout_constraintTop_toBottomOf="@id/clRootGivePublication"
-                app:layout_constraintTop_toTopOf="@null"
-                layout="@layout/read_publications" />
+                app:layout_constraintTop_toTopOf="@null" />
 
             <!--WATCH ANIMALS-->
 
@@ -114,10 +115,10 @@
                 android:id="@+id/clRootWatchAnimals"
                 style="@style/registerParentRoot"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/space32"
                 android:clickable="true"
                 android:focusable="true"
                 android:foreground="@null"
-                android:layout_marginTop="@dimen/space32"
                 app:layout_constraintTop_toBottomOf="@id/clRootReadPublication"
                 app:layout_constraintTop_toTopOf="@null">
 
